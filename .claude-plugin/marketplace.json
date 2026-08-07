@@ -1,0 +1,23 @@
+{
+  "name": "gaply",
+  "owner": {
+    "name": "Gaply",
+    "email": "info@gaply.nl"
+  },
+  "metadata": {
+    "description": "Officiële Gaply-plugins voor implementatiepartners en intern gebruik. Beheerd door Gaply; partners installeren en updaten vanaf hier.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "gaply-partner",
+      "source": "./plugins/gaply-partner",
+      "description": "Partnerpakket voor Gaply-implementatiepartners: offertes, klantintake, focusgebieden, contentvoorstellen, maandrapportage en livegang. Werkt via de Gaply MCP-koppeling met de Partnerrol.",
+      "version": "0.2.0",
+      "author": {
+        "name": "Gaply"
+      },
+      "keywords": ["gaply", "partner", "implementatie", "gap-analyse"]
+    }
+  ]
+}

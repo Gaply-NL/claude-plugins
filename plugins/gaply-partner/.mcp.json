@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "gaply": {
+      "type": "http",
+      "url": "https://VERVANG-DOOR-GAPLY-MCP-URL/mcp"
+    }
+  }
+}

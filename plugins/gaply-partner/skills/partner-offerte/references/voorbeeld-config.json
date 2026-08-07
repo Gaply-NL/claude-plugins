@@ -1,0 +1,149 @@
+{
+  "klantnaam_kort": "het NLVi",
+  "meta": {
+    "titel": "AI-laag voor nlveteraneninstituut.nl",
+    "ondertitel": "Slim zoeken, betrouwbare antwoorden uit eigen bron en inzicht in wat bezoekers vragen",
+    "aan": "Nederlands Veteraneninstituut",
+    "tav": "Afdeling Communicatie",
+    "van": "Webbio, in samenwerking met Gaply",
+    "datum": "2 juli 2026",
+    "geldig_tot": "30 dagen na dagtekening",
+    "kenmerk": "GAP-NLVI-2026-001",
+    "footer": "Gaply-implementatie Nederlands Veteraneninstituut via Webbio",
+    "klant_logo": "nlvi_logo.png",
+    "klant_logo_breedte_mm": 26,
+    "klant_logo_ratio": 0.5125
+  },
+  "wat_is_gaply": [
+    "Gaply is een AI-laag die op de bestaande website wordt geplaatst. Er hoeft niets aan de site zelf te veranderen. Bezoekers stellen hun vraag in gewone taal (“hoe vraag ik een veteranenpas aan?”) en krijgen direct een antwoord dat <b>uitsluitend</b> uit de eigen websitecontent komt, met een link naar de juiste pagina. Gaply verzint nooit iets: geen bron, geen antwoord.",
+    "Daarnaast analyseert Gaply doorlopend (geanonimiseerd) welke vragen bezoekers stellen en of de website daar antwoord op heeft. Vragen zonder goed antwoord worden gebundeld tot concrete content-adviezen: een kant-en-klare contentagenda op basis van échte gebruikersvragen, in plaats van aannames.",
+    "Gaply draait onder meer bij het Juridisch Loket, Milieu Centraal en de NPO. Bij de NPO leverde dit 32.000 zoekinteracties in 90 dagen op en een reductie van circa 70% in telefonische contactaanvragen."
+  ],
+  "wat_lost_op": [
+    "<b>Vindbaarheid voor elke doelgroep.</b> De huidige zoekfunctie werkt op trefwoorden. Veteranen, thuisfront, MOD’ers en professionals stellen echter vragen in hun eigen woorden en context. Gaply begrijpt de vraag en leidt elke doelgroep direct naar het juiste antwoord binnen de ruim 3.200 pagina’s.",
+    "<b>Ontlasting van het Veteranenloket.</b> Veel vragen die nu telefonisch of via het loket binnenkomen, staan al beantwoord op de website, maar worden niet gevonden. Gaply vangt deze vragen online af.",
+    "<b>Duidelijke contentrichting, zonder extra werk.</b> Het NLVi krijgt periodieke rapportages met de gevonden contentgaten en concrete adviezen, plus een evaluatiegesprek. Inloggen in een dashboard is niet nodig; signaleren en adviseren doen wij.",
+    "<b>Externe vindbaarheid in Google en AI-assistenten.</b> Gaply maakt alle pagina’s automatisch machineleesbaar (structured data), zodat ook ChatGPT, Gemini en Google de juiste NLVi-antwoorden vinden. Volledig geautomatiseerd."
+  ],
+  "analyse": {
+    "intro": "Op basis van de sitemap van nlveteraneninstituut.nl (3.252 URL’s) hebben we de content beoordeeld op geschiktheid voor de AI-laag. De waarde zit in kennis- en servicecontent waar bezoekers vragen over stellen; niet alle content hoeft (direct) mee.",
+    "rijen": [
+      {
+        "onderdeel": "Informatiepagina's &amp; onderwerpen",
+        "urls": "±340",
+        "type": "Zorg &amp; ondersteuning, Veteranenloket, doelgroepen, onderscheidingen, missies, locaties, feiten &amp; cijfers, onderzoek",
+        "fit": "Hoog",
+        "fit_stijl": "hoog"
+      },
+      {
+        "onderdeel": "Evenementen",
+        "urls": "103",
+        "type": "Actuele agenda, filterbaar per doelgroep",
+        "fit": "Hoog",
+        "fit_stijl": "hoog"
+      },
+      {
+        "onderdeel": "Nieuws",
+        "urls": "394",
+        "type": "Ouder nieuws bevat verouderde informatie; we nemen automatisch alleen de laatste 12 maanden mee",
+        "fit": "Middel (gefilterd)",
+        "fit_stijl": ""
+      },
+      {
+        "onderdeel": "Verhalen",
+        "urls": "963",
+        "type": "Persoonlijke verhalen; waardevol als gerelateerde content bij onderwerpen, niet als antwoordbron",
+        "fit": "Middel",
+        "fit_stijl": ""
+      },
+      {
+        "onderdeel": "Interviews",
+        "urls": "1.426",
+        "type": "Interviewcollectie; staat ook elders gepubliceerd",
+        "fit": "Laag (advies: niet opnemen)",
+        "fit_stijl": "laag"
+      },
+      {
+        "onderdeel": "Overig (prikbord e.d.)",
+        "urls": "26",
+        "type": "Tijdelijke oproepen",
+        "fit": "Laag",
+        "fit_stijl": "laag"
+      }
+    ],
+    "totaal": "3.252"
+  },
+  "varianten": {
+    "intro": "Variant A is ons advies: laagdrempelig starten met de content waar de gebruikersvraag ligt, en uitbreiden zodra de eerste resultaten zichtbaar zijn.",
+    "rijen": [
+      {
+        "naam": "A – Kern<br/>(aanbevolen)",
+        "scope": "Informatiepagina's &amp; onderwerpen, evenementen, nieuws laatste 12 maanden",
+        "urls": "±600",
+        "wanneer": "Actuele kennis- en servicecontent; maximale fit en direct resultaat"
+      },
+      {
+        "naam": "B – Kern + Verhalen",
+        "scope": "Variant A + verhalen (als gerelateerde content bij onderwerpen)",
+        "urls": "±1.550",
+        "wanneer": "Als verhalen zichtbaar moeten worden bij passende onderwerpen"
+      },
+      {
+        "naam": "C – Volledig",
+        "scope": "Variant B + volledig nieuwsarchief en interviewcollectie",
+        "urls": "±3.250",
+        "wanneer": "Wanneer het NLVi één integrale AI-laag over de hele site wil"
+      }
+    ]
+  },
+  "aanpak": [
+    {
+      "kop": "Setup inclusief contentanalyse",
+      "tekst": "We richten de AI-laag in en voeren daarbij een contentanalyse uit over de volledige site: welke content is actueel, welke is verouderd (denk aan oude telefoonnummers of vervallen regelingen) en wat adviseren wij wel of niet op te nemen. Dit advies is onderdeel van de setup en bespreken we vóór livegang."
+    },
+    {
+      "kop": "Zoekfunctie in NLVi-huisstijl",
+      "tekst": "Een zoekbalk/chatvenster in de huisstijl van het NLVi, waar bezoekers hun vraag stellen en een antwoord uit de bron krijgen met doorklik naar de juiste pagina. Vorm en plek (bijvoorbeeld in de header) stemmen we samen af."
+    },
+    {
+      "kop": "Altijd actueel",
+      "tekst": "Gaply synchroniseert doorlopend met de website. Wijzigt de redactie een pagina, dan staat die binnen 24 uur ook in de AI-laag. Content kan gefaseerd worden aan- en uitgezet, bijvoorbeeld eerst de informatiepagina's."
+    },
+    {
+      "kop": "Rapportage en begeleiding",
+      "tekst": "Periodieke rapportage met de belangrijkste contentgaten en concrete adviezen, plus een evaluatiegesprek. Het NLVi hoeft zelf niet in een systeem te werken; desgewenst geven we later toegang en een korte training."
+    },
+    {
+      "kop": "Vervolgstap: MijnNLVi",
+      "tekst": "Dezelfde AI-laag kan later als module op de afgeschermde omgeving MijnNLVi worden geplaatst, waarbij uitsluitend publieke websitecontent als bron dient. Zo wordt het Veteranenloket verder ontlast. Dit valt buiten deze offerte."
+    }
+  ],
+  "investering": {
+    "intro": "Bedragen exclusief btw. De maandelijkse licentie omvat hosting, support, doorlopend beheer, gap-analyse, content-adviezen en rapportages. De eenmalige setup omvat de contentanalyse met advies, inrichting van de datasources en AI-instellingen, de zoekwidget in huisstijl en de eerste oplevering.",
+    "setup": [
+      "€ 2.500",
+      "€ 2.500",
+      "€ 2.500"
+    ],
+    "maand": [
+      "€ 500 / maand",
+      "€ 750 / maand",
+      "€ 1.000 / maand"
+    ],
+    "bevat": [
+      "Kern-content (±600 URL's) · zoekwidget · gap-analyse · rapportages · contentanalyse bij setup",
+      "Variant A + verhalen als gerelateerde content",
+      "Variant B + nieuwsarchief en interviews"
+    ]
+  },
+  "branding": {
+    "partner_naam": "Webbio",
+    "partner_logo": "webbio_logo.png",
+    "partner_logo_breedte_mm": 30,
+    "partner_logo_ratio": 0.3,
+    "kleur_donker": "#15151F",
+    "kleur_primair": "#00C39B",
+    "kleur_primair_licht": "#E2F8F1",
+    "kleur_signaal": "#E5147E"
+  }
+}
