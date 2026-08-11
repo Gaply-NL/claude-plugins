@@ -30,9 +30,12 @@ in samenspraak met de eindklant.
 
 ### 1. Bepaal de focusgebieden met de klant
 
-Vertrekpunt is de intake: doelgroepen en vraagtypen. Goede focusgebieden zijn
-onderwerpen waar bezoekersvragen over bestaan, niet de menustructuur van de
-site. Gebruik als input wat bezoekers werkelijk doen: `get_interaction_frequency`
+Vertrekpunt is de projectcontext uit de intake: `get_project_context` geeft de
+focusgebied-kandidaten die daar al zijn vastgelegd (onderwerp, waarom,
+voorbeeldvragen), plus doelgroepen en vraagtypen. Dat is een startpunt, geen
+eindpunt — goede focusgebieden zijn onderwerpen waar bezoekersvragen over
+bestaan, niet de menustructuur van de site. Gebruik als aanvullende input wat
+bezoekers werkelijk doen: `get_interaction_frequency`
 en `list_interaction_logs` (echte zoekopdrachten en chatvragen),
 `get_gsc_queries` (Google-zoekwoorden als GSC gekoppeld is) en
 `get_insights_summary` / `list_insight_topics` voor de vraagclusters. Stel per

@@ -34,9 +34,12 @@ partner is afzender; het rapport vermeldt "in samenwerking met Gaply".
 2. Kanaal bepalen met `get_gap_sources`: draait `site_search` met verkeer,
    dan een zoekrapportage; draait alleen `chat`, dan een chatrapportage.
    Rapporteer nooit een leeg kanaal.
-3. Huisstijl van de EINDklant (merkkleur hex, logo-URL): van de website van de
-   klant of uit eerdere rapportages; verzin geen kleuren. De afzenderbranding
-   van de partner komt uit `config/branding.md`.
+3. Huisstijl van de EINDklant (merkkleur hex, logo-URL): dit zijn sinds de
+   intake verplichte velden in de projectcontext — haal ze eerst op met
+   `get_project_context`. Ontbreken ze daar (een oudere intake, van vóór ze
+   verplicht werden), val dan terug op de website van de klant of eerdere
+   rapportages; verzin geen kleuren. De afzenderbranding van de partner komt
+   uit `config/branding.md`.
 
 ## Stap 1 — Weigeren bij te weinig data
 
