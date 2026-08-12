@@ -1,70 +1,76 @@
 ---
 name: partner-livegang
 description: >-
-  Livegang van een Gaply-klantproject: synchronisatie van test naar productie,
-  widget-installatie op de klantsite met API-keys, en verificatie na livegang.
-  Gebruik bij "live zetten", "livegang [klant]", "naar productie", "widget
-  installeren" of "de zoekfunctie op de site zetten".
+  Livegang van een Gaply-klantproject voorbereiden en aanvragen: gereedheid
+  checken, klant-akkoord vastleggen, de aanvraag bij Gaply indienen en de
+  klant-acties coördineren. De livegang zelf (sync naar productie, API-keys,
+  widget-configuratie) voert Gaply uit — nooit de partner. Gebruik bij "live
+  zetten", "livegang [klant]", "naar productie" of "de zoekfunctie op de site
+  zetten".
 ---
 
 # Partner-livegang
 
-De partner mag zelfstandig live zetten. Live zetten betekent: de op de
-testomgeving ingerichte focusgebieden en instellingen naar de
-productieomgeving synchroniseren en de widget op de klantsite activeren.
-Direct wijzigen op productie is platformbreed geblokkeerd; alles loopt via de
-sync vanaf test. Dat is normaal gedrag, geen rechtenprobleem.
+**De livegang wordt uitgevoerd door Gaply, nooit door de partner.** Jouw rol
+is de voorbereiding: vaststellen dat alles er klaar voor is, het akkoord van
+de klant vastleggen, de aanvraag bij Gaply indienen en daarna de acties aan
+klantzijde coördineren. Kom je ergens een schrijfactie richting productie
+tegen (synchronisatie, API-keys, widget-instellingen) — dan hoort die niet
+bij jou; een 403 daarop is correct gedrag, geen rechtenprobleem.
 
-## Checklist vóór livegang
+## Checklist vóór de aanvraag
 
 Loop deze punten na en benoem expliciet wat nog openstaat:
 
-1. Focusgebieden staan op test, zijn doorgerekend (`list_lenses`:
+1. **Projectcontext op `compleet_voor_livegang`** — check via
+   `get_project_context`. Het rapport vertelt precies welke laag-2-velden nog
+   ontbreken of onbevestigd zijn (widget-domeinen, merkkleuren/logo,
+   beheerder, tagmanager-beheerder, kantoor-IP's, livegang-datum). Gaply
+   gebruikt die velden bij de uitvoering; onvolledig betekent dat de
+   livegang niet start.
+2. Focusgebieden staan op test, zijn doorgerekend (`list_lenses`:
    lastRefreshedAt gevuld) en met de klant besproken.
-2. De grootste contentgaten van de startfase zijn geadresseerd of bewust
+3. De grootste contentgaten van de startfase zijn geadresseerd of bewust
    geaccepteerd door de klant.
-3. Proefondervindelijk getest: stel via `ask_chat` en `search_knowledge_base`
-   de tien belangrijkste klantvragen en beoordeel de antwoorden samen met de
-   klant.
-4. De klant heeft akkoord gegeven op livegang (datum vastleggen).
-5. Widgetconfiguratie klaar: huisstijl en teksten via `get_widget_settings` /
-   `set_widget_settings`.
+4. Proefondervindelijk getest: stel via `ask_chat` en `search_knowledge_base`
+   de tien belangrijkste klantvragen op de testomgeving en beoordeel de
+   antwoorden samen met de klant.
+5. De klant heeft akkoord gegeven op livegang — leg de datum vast (bevestig
+   ook `livegang.datum` in de projectcontext als die afwijkt).
 
-## Livegang
+## De aanvraag
 
-1. **Synchroniseer naar productie**: `sync_environment` naar de
-   productie-environment. Schrijfacties op productie vereisen
-   `allowProduction: true`; destructieve of kostenbare acties ondersteunen
-   `dryRun: true` voor een preview — gebruik die eerst.
-2. **API-key voor de widget**: `create_api_key` op environment-scope. Bewaar
-   de secret veilig; die wordt maar één keer getoond. Beperk de key direct tot
-   de domeinen van de klant met `update_api_key_allowed_origins` (uit de
-   intake).
-3. **Widget op de site**: gebruik `get_widget_bookmarklet` om de plaatsing te
-   demonstreren of te testen; de definitieve embed plaatst de webbouwer van de
-   klant (vaak de partner zelf) volgens de widgetconfiguratie.
-4. **Standalone agent** (indien afgesproken): aanmaken en configureren op de
-   testomgeving (`create_standalone_agent`, branding, welkomstbericht); het
-   live zetten op productie en een eventueel custom domain lopen via Gaply —
-   meld het verzoek bij Gaply met de gewenste domeinnaam.
+Meld de livegang aan bij Gaply (info@gaply.nl) met: klant/project, de
+afgesproken livegang-datum en eventuele bijzonderheden. Gaply voert de
+livegang uit: de synchronisatie van test naar productie, de origin-gebonden
+API-key, de widget-configuratie in de huisstijl uit de projectcontext, de
+nulmeting en het aanzetten van de kwaliteitsbewaking. Ook een standalone
+agent (indien afgesproken) en custom domains lopen via Gaply.
+
+Gaply levert na uitvoering de embed-instructie of tagmanager-tag terug.
+
+## Coördinatie aan klantzijde
+
+- De **tagmanager-beheerder** (contactpersoon uit de projectcontext) plaatst
+  de tag of de webbouwer plaatst de embed — dat is de enige technische
+  handeling buiten Gaply, en die ligt bij de klant of bij jou als partner,
+  op de klántsite.
+- Stem de communicatie rond het livegang-moment af met de dagelijks
+  beheerder.
 
 ## Verificatie na livegang
 
-- `get_sync_status` en `get_ingest_status`: synchronisatie afgerond zonder
-  fouten.
 - Stel op de live site enkele kernvragen en controleer de antwoorden.
 - Controleer na de eerste dagen `list_interaction_logs` op verkeer en
   `get_gap_sources` of de bronnen data leveren.
-- Meld de livegang aan Gaply (info@gaply.nl), zodat de kwaliteitsbewaking en
-  signalering aan Gaply-kant meelopen.
-
-Plan direct de eerste maandrapportage in (skill `partner-rapportage`), één
-volle kalendermaand na livegang.
+- Plan direct de eerste maandrapportage in (skill `partner-rapportage`), één
+  volle kalendermaand na livegang.
 
 ## Grenzen
 
+- **De partner voert de livegang nooit zelf uit**: geen synchronisatie naar
+  productie, geen API-keys aanmaken of wijzigen, geen widget-instellingen
+  schrijven, geen standalone agents aanmaken. Dat is allemaal Gaply-werk.
 - Geen wijzigingen aan bronnen, zoek- of AI-instellingen; storingen of gekke
   antwoorden meld je bij Gaply.
-- API-keys nooit in chat of documentatie laten slingeren; origins altijd
-  direct beperken.
 - Custom domains en certificaten lopen via Gaply.

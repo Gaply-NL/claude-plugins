@@ -1,59 +1,117 @@
 ---
 name: partner-intake
 description: >-
-  Verzamelt na een getekende Gaply-offerte alle input die Gaply nodig heeft om
-  het klantproject in te richten, en levert één gestandaardiseerd
-  intakedocument op. Gebruik bij "intake voor [klant]", "nieuwe klant
-  aanmelden", "overdracht naar Gaply", "wat heeft Gaply nodig" of direct na een
-  akkoord op een offerte.
+  Verzamelt na een getekende Gaply-offerte de projectcontext die Gaply nodig
+  heeft om het klantproject in te richten: haalt de actuele vragenlijst live
+  op bij Gaply, vult die in via de projectcontext-tools en toont het
+  validatierapport dat direct terugkomt. Gebruik bij "intake voor [klant]",
+  "nieuwe klant aanmelden", "overdracht naar Gaply", "wat heeft Gaply nodig"
+  of direct na een akkoord op een offerte.
 ---
 
 # Partner-intake (overdracht naar Gaply)
 
 Dit is het formele overdrachtsmoment van partner naar Gaply. Gaply richt op
-basis van dit document de omgeving in: project en environments, de bronnen
-(datasources), de zoek- en AI-instellingen en de kwaliteitsbewaking. Dat is
-bewust werk van Gaply; de partner levert de input en neemt daarna de
-inrichting van focusgebieden en content over. Hoe vollediger de intake, hoe
-sneller de omgeving staat — een complete intake voorkomt heen-en-weer.
+basis van de projectcontext de omgeving in: project en environments, de
+bronnen (datasources), de zoek- en AI-instellingen en de kwaliteitsbewaking.
+Dat is bewust werk van Gaply; de partner levert de input en neemt daarna de
+inrichting van focusgebieden en content over.
+
+De intake loopt via de projectcontext-tools op de `gaply` MCP-server, niet
+meer via een document dat je zelf naar Gaply mailt. Voordeel: de vragenlijst
+komt live uit Gaply zelf, dus die kan nooit meer uit de pas lopen met wat
+Gaply werkelijk verwacht — en je krijgt na elke keer wegschrijven direct een
+validatierapport terug, in plaats van dat pas te horen als iemand bij Gaply
+het document leest.
 
 ## Werkwijze
 
-### 1. Vul het intakedocument
+### 1. Vragenlijst ophalen
 
-Gebruik `references/intake-template.md` als vaste structuur. Verzamel de
-gegevens uit de offerte, de gespreksnotities en waar nodig door de gebruiker
-gericht te bevragen. Verzin niets; markeer wat echt onbekend is als
-"onbekend" met de reden.
+Haal de actuele vragenlijst op met `get_project_context_template`. Lees niet
+een lijst uit dit skill-bestand — die staat hier bewust niet meer (zie
+hieronder). Elk veld komt terug met `id`, `label`, `sectie`, `type`,
+`verplicht` (bool) en `laag` (1 = vóór de demo, 2 = vóór livegang), plus een
+`hulptekst`. Dit template ís de bron van waarheid voor wat er gevraagd moet
+worden, en dus ook voor welke velden verplicht zijn: dat staat voortaan
+uitsluitend in het `verplicht`- en `laag`-veld van elk templateveld zelf, niet
+in een aparte lijst in deze skill.
 
-Verplichte onderdelen voordat je het document oplevert:
+Is er al eerder ingevuld voor dit project, haal dan ook `get_project_context`
+op zodat je niet opnieuw vraagt wat al bevestigd is.
 
-- klantnaam, domein en de gekozen offertevariant met de bijbehorende scope
-  (welke contentcategorieën wel en niet, inclusief het 12-maandenfilter voor
-  nieuws);
-- sitemap-overzicht uit de offerteanalyse (categorieën met aantallen);
-- doelgroepen en de belangrijkste vraagtypen per doelgroep;
-- toon en taalgebruik van de klant (formeel/informeel, "je" of "u");
-- Google Search Console: is er toegang, en wie verleent die;
-- gewenste plek van de zoekwidget (bijvoorbeeld header) en de domeinen
-  waarop die komt te staan (nodig voor API-key origins);
-- contactpersonen: bij de klant (redactie en techniek) en bij de partner;
-- juridische randvoorwaarden of gevoeligheden die uit het gesprek bleken;
-- gewenste livegang-datum.
+### 2. Invullen, sectie voor sectie
 
-### 2. Controleer op volledigheid
+Loop de secties uit het template langs. Haal antwoorden uit de offerte en de
+gespreksnotities, en bevraag de gebruiker gericht op wat daar niet uit blijkt
+— vooral bij "Vragen die bezoekers écht stellen" en "Focusgebied-kandidaten"
+moet je actief doorvragen; die vul je niet uit een offerte-PDF.
 
-Loop het template langs; elk verplicht veld is gevuld of expliciet "onbekend"
-met reden. Een intake met stille gaten kost meer tijd dan een intake die
-eerlijk zegt wat er nog mist.
+Verzin niets; markeer wat echt onbekend is. Dat is nu concreet, per veld:
 
-### 3. Lever op en draag over
+- **Echt onbekend**: stuur het veld niet mee, of geef het `status: 'leeg'`
+  mee.
+- **Afgeleid** — je haalt het antwoord uit de offerte of de website, maar het
+  is niet expliciet gehoord of bevestigd: `status: 'afgeleid'`, en leg het
+  daarna expliciet aan de klant of de partner voor ter bevestiging. Dit is
+  bewust — een afgeleid antwoord telt NIET mee als compleet voor een
+  verplicht veld, ook niet ná het wegschrijven. Een afgeleid veld is een
+  aanbod om te corrigeren, geen feit; alleen een bevestigd antwoord telt.
+- **Bevestigd** — de klant of partner heeft het letterlijk zo gezegd of
+  goedgekeurd: `status: 'bevestigd'`.
 
-Sla het document op als `intake_gaply_[klant].md` en lever het aan de
-gebruiker op met de instructie het naar Gaply (info@gaply.nl) te sturen.
-Vermeld in je afronding: Gaply richt de omgeving in en meldt wanneer de
-testomgeving klaarstaat; daarna start de partner met de skill
-`partner-focusgebieden`.
+Geef bij elk veld ook `herkomst` mee (`bron` + `datum`).
+
+### 3. Wegschrijven
+
+Schrijf de velden weg met `set_project_context`. Partieel schrijven mag en is
+normaal — de partner hoeft niet alles in één sessie te hebben; vul aan
+naarmate er meer bekend wordt. Het antwoord bevat het bijgewerkte
+compleetheidsrapport, dus je hoeft niet apart te pollen.
+
+### 4. Validatierapport tonen
+
+Laat het compleetheidsrapport zien zoals het terugkomt: ontbrekende
+verplichte velden, velden die wel gevuld zijn maar te mager (voldoen niet aan
+de minimale inhoudseis), en de suggesties. Vertaal de `status` naar wat het
+voor de partner betekent:
+
+- `leeg` / `in_bewerking` — er ontbreekt nog verplichte input; Gaply kan nog
+  niet starten.
+- `compleet_voor_demo` — Gaply kan nu de omgeving inrichten en de demo
+  klaarzetten.
+- `compleet_voor_livegang` — ook de laag-2-velden zijn binnen; niets houdt
+  livegang meer tegen vanuit de intake.
+
+### 5. Afronden
+
+Zolang de status nog niet `compleet_voor_demo` is, is de uitkomst van de
+sessie een concreet aanleverlijstje voor de klant: precies de resterende
+ontbrekende en te magere velden uit het validatierapport — niet de hele
+vragenlijst opnieuw.
+
+Is de status `compleet_voor_demo` of hoger: meld dat aan de gebruiker en
+verwijs door naar de skill `partner-focusgebieden` als volgende stap.
+
+## Als de tool niet lukt
+
+Krijg je geen toegang (bijvoorbeeld een 403) of is de MCP-koppeling niet
+bereikbaar: **stop en meld het bij Gaply** (info@gaply.nl), met de exacte
+foutmelding en het moment. Er is bewust géén papieren terugvaloptie — een
+intake buiten de tool om krijgt geen validatie en geen compleetheidsrapport,
+en dat is precies wat deze flow moet garanderen. Gaply herstelt de koppeling;
+daarna ga je gewoon verder waar je was (partieel wegschrijven mag altijd).
+
+## Search Console: de partner koppelt zelf
+
+De koppeling met Google Search Console legt de partner zélf, via de
+Gaply-webinterface (inloggen met je eigen Gaply-account → omgeving →
+instellingen → Search Console). De Google-koppeling vereist een browser-login
+en kan dus niet via MCP; controleren of hij staat kan wél via
+`get_gsc_status`. Gebruik het Google-account dat toegang heeft tot de
+property van de klant — het templateveld "wie verleent Search
+Console-toegang" legt vast wie dat kan regelen. Gaply zit hier bewust niet
+tussen.
 
 ## Grenzen
 
