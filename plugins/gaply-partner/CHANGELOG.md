@@ -5,6 +5,14 @@ Alle wijzigingen aan deze plugin worden hier bijgehouden. Versies volgen
 hun werkwijze moeten aanpassen, MINOR bij nieuwe of gewijzigde skills en
 prijslijst-/beleidswijzigingen, PATCH bij tekstuele fixes.
 
+## [0.3.1] — 2026-08-12
+
+### Toegevoegd
+- `partner-intake` stap 0: de partner maakt het klantproject zélf aan
+  (`create_project` in de eigen organisatie) als het nog niet bestaat — de
+  Partnerrol heeft daarvoor sinds 12-08 de capability `project.create`.
+  Omgevingen, bronnen en crawl blijven Gaply-werk.
+
 ## [0.3.0] — 2026-08-11
 
 ### Gewijzigd
