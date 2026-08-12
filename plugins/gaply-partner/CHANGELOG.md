@@ -18,8 +18,18 @@ prijslijst-/beleidswijzigingen, PATCH bij tekstuele fixes.
 - De verplichte-veldenlijst in `partner-intake/SKILL.md` is verwijderd:
   `verplicht` is nu een eigenschap van het templateveld zelf, niet van de
   skill-tekst.
-- `references/intake-template.md` is omgezet van invulformulier naar een
-  korte toelichting per sectie — achtergrond, geen invullijst.
+- `references/intake-template.md` is **verwijderd**. De uitleg per veld
+  (waarom Gaply het vraagt, met voorbeelden) zit voortaan als `helpText` ín
+  de template zelf en komt mee met `get_project_context_template` — één bron
+  van waarheid, geen lokaal document dat kan verouderen. Ook de papieren
+  terugvaloptie (intake-document mailen bij een niet-werkende koppeling) is
+  vervallen: bij een 403 of onbereikbare MCP meld je het bij Gaply en wordt
+  de koppeling hersteld — een intake buiten de validatie om bestaat niet
+  meer.
+- Nieuwe sectie in `partner-intake`: **de partner koppelt Search Console
+  zelf** via de Gaply-webinterface (browser-login vereist; MCP kan de status
+  wel checken via `get_gsc_status`, de koppeling niet leggen). Gaply zit hier
+  bewust niet tussen.
 - `partner-focusgebieden` en `partner-rapportage` verwijzen nu naar de
   projectcontext (`get_project_context`) voor respectievelijk
   focusgebied-kandidaten en de verplichte huisstijlvelden (merkkleur,

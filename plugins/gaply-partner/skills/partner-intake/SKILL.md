@@ -96,12 +96,22 @@ verwijs door naar de skill `partner-focusgebieden` als volgende stap.
 ## Als de tool niet lukt
 
 Krijg je geen toegang (bijvoorbeeld een 403) of is de MCP-koppeling niet
-bereikbaar: meld dat expliciet aan de gebruiker. Val dan terug op het oude
-document: bouw op basis van de sectiestructuur in
-`references/intake-template.md` een `intake_gaply_[klant].md` en laat de
-gebruiker dat naar Gaply (info@gaply.nl) sturen. Vermeld daarbij nadrukkelijk
-dat dit document **handmatig verwerkt** moet worden — het gaat buiten de
-tool-validatie om, dus Gaply krijgt geen automatisch compleetheidsrapport.
+bereikbaar: **stop en meld het bij Gaply** (info@gaply.nl), met de exacte
+foutmelding en het moment. Er is bewust géén papieren terugvaloptie — een
+intake buiten de tool om krijgt geen validatie en geen compleetheidsrapport,
+en dat is precies wat deze flow moet garanderen. Gaply herstelt de koppeling;
+daarna ga je gewoon verder waar je was (partieel wegschrijven mag altijd).
+
+## Search Console: de partner koppelt zelf
+
+De koppeling met Google Search Console legt de partner zélf, via de
+Gaply-webinterface (inloggen met je eigen Gaply-account → omgeving →
+instellingen → Search Console). De Google-koppeling vereist een browser-login
+en kan dus niet via MCP; controleren of hij staat kan wél via
+`get_gsc_status`. Gebruik het Google-account dat toegang heeft tot de
+property van de klant — het templateveld "wie verleent Search
+Console-toegang" legt vast wie dat kan regelen. Gaply zit hier bewust niet
+tussen.
 
 ## Grenzen
 
