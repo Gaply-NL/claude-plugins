@@ -24,6 +24,18 @@ prijslijst-/beleidswijzigingen, PATCH bij tekstuele fixes.
   projectcontext (`get_project_context`) voor respectievelijk
   focusgebied-kandidaten en de verplichte huisstijlvelden (merkkleur,
   logo-URL), in plaats van die los te laten zoeken.
+- **`partner-livegang` voert de livegang niet meer zelf uit.** De uitvoering
+  (synchronisatie naar productie, API-keys, widget-configuratie, standalone
+  agents) ligt volledig bij Gaply; de skill bereidt voor (gereedheids-check
+  incl. `compleet_voor_livegang` op de projectcontext, klant-akkoord), dient
+  de aanvraag in bij Gaply en coördineert de klant-acties (tag-plaatsing door
+  de tagmanager-beheerder uit de projectcontext). Alle prod-schrijfacties
+  (`sync_environment` met `allowProduction`, `create_api_key`,
+  `update_api_key_allowed_origins`, `set_widget_settings`,
+  `create_standalone_agent`) zijn uit de skill verwijderd.
+- Plugin-README bijgewerkt: intake- en livegang-omschrijvingen kloppen weer
+  met de werkelijke flow; rolverdeling benoemt expliciet dat livegang
+  Gaply-werk is.
 
 ### Toegevoegd
 - Nieuwe verplichte/uitgebreide velden in de projectcontext-vragenlijst:

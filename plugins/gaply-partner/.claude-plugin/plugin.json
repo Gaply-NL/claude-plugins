@@ -1,7 +1,7 @@
 {
   "name": "gaply-partner",
   "version": "0.3.0",
-  "description": "Partnerpakket voor Gaply-implementatiepartners: offertes, klantintake, focusgebieden, contentvoorstellen, maandrapportage en livegang. Werkt via de Gaply MCP-koppeling met de Partnerrol.",
+  "description": "Partnerpakket voor Gaply-implementatiepartners: offertes, klantintake, focusgebieden, contentvoorstellen, maandrapportage en livegang-voorbereiding (de uitvoering van de livegang doet Gaply). Werkt via de Gaply MCP-koppeling met de Partnerrol.",
   "author": {
     "name": "Gaply"
   },

@@ -10,11 +10,11 @@ werkstromen die daarbij horen.
 | Skill | Wanneer |
 |---|---|
 | partner-offerte | Offerte-PDF in partnerhuisstijl op de vaste Gaply-prijslijst |
-| partner-intake | Na akkoord: gestandaardiseerde overdracht naar Gaply voor de inrichting |
+| partner-intake | Na akkoord: de klantcontext invullen in de projectcontext van Gaply — live vragenlijst, validatie- en compleetheidsrapport in de respons |
 | partner-focusgebieden | Focusgebieden opzetten, doorrekenen en duiden met de klant |
 | partner-contentvoorstellen | Van contentgat naar geplaatste, geverifieerde content |
 | partner-rapportage | Maandrapportage per eindklant, met roadmap per focusgebied |
-| partner-livegang | Sync naar productie, widget en API-keys, verificatie |
+| partner-livegang | Livegang voorbereiden en aanvragen — de uitvoering (sync, keys, widget) doet Gaply |
 
 ## Installatie (door Gaply, per partner)
 
@@ -32,5 +32,7 @@ De Partnerrol kan bewust NIET bij de broninrichting (datasources), de zoek- en
 AI-instellingen, de golden set en het platformbeheer. Dat is de motorkap van
 Gaply. Loopt een skill daar tegenaan (403 of ontbrekende tool), dan is dat
 correct gedrag: meld het bij Gaply (info@gaply.nl) in plaats van een omweg te
-zoeken. Focusgebieden en instellingen wijzig je op de testomgeving; live
-zetten gaat via de environment-sync (skill partner-livegang).
+zoeken. Focusgebieden wijzig je op de testomgeving. **De livegang zelf —
+synchronisatie naar productie, API-keys, widget-configuratie — voert Gaply
+uit, nooit de partner**; de skill partner-livegang bereidt voor en dient de
+aanvraag in.
