@@ -26,6 +26,20 @@ het document leest.
 
 ## Werkwijze
 
+### 0. Zorg dat het project bestaat
+
+De vragenlijst ophalen kan altijd, maar de ingevulde context hangt aan een
+project. Bestaat er nog geen project voor deze klant (check met
+`list_projects` in je eigen organisatie), maak het dan zelf aan met
+`create_project`: projectnaam = de klantnaam zoals die in de offerte staat
+(bijv. "Bakkerij Jansen"), binnen je eigen partner-organisatie. Meer dan een
+naam is niet nodig — omgevingen, bronnen en de crawl richt Gaply later in
+(vanaf de demo-drempel). Een leeg project kost niets; maak er wel maar één
+per klant aan en hergebruik het bestaande project bij een tweede sessie.
+Verwijderen van een verkeerd aangemaakt project kan alleen Gaply — meld een
+misser via info@gaply.nl in plaats van een nieuw project met bijna dezelfde
+naam te beginnen.
+
 ### 1. Vragenlijst ophalen
 
 Haal de actuele vragenlijst op met `get_project_context_template`. Lees niet
