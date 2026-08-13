@@ -5,10 +5,16 @@ De partner doet de sales en de implementatie richting de eindklant; Gaply
 draait het systeem. Deze plugin geeft de agent van de partner precies de
 werkstromen die daarbij horen.
 
-## De zes skills
+## De zeven skills
+
+**Start hier:** weet je niet welke skill je nodig hebt, zeg dan gewoon
+"nieuwe klant" of "wat is de volgende stap voor [klant]" — de skill
+`partner-start` bepaalt waar de klant staat en wijst de weg, inclusief de
+momenten waarop je op Gaply wacht.
 
 | Skill | Wanneer |
 |---|---|
+| partner-start | Wegwijzer: waar staat de klant, welke skill is nu aan zet |
 | partner-offerte | Offerte-PDF in partnerhuisstijl op de vaste Gaply-prijslijst |
 | partner-intake | Na akkoord: de klantcontext invullen in de projectcontext van Gaply — live vragenlijst, validatie- en compleetheidsrapport in de respons |
 | partner-focusgebieden | Focusgebieden opzetten, doorrekenen en duiden met de klant |
