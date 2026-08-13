@@ -8,6 +8,10 @@ prijslijst-/beleidswijzigingen, PATCH bij tekstuele fixes.
 ## [0.3.1] — 2026-08-12
 
 ### Toegevoegd
+- Nieuwe skill **`partner-start`**: wegwijzer door het hele traject —
+  bepaalt via `get_my_access`/`get_project_context` waar een klant staat en
+  verwijst naar de juiste skill, inclusief de twee wachtmomenten waarop de
+  bal bij Gaply ligt. README kreeg een "Start hier"-sectie.
 - `partner-intake` stap 0: de partner maakt het klantproject zélf aan
   (`create_project` in de eigen organisatie) als het nog niet bestaat — de
   Partnerrol heeft daarvoor sinds 12-08 de capability `project.create`.
