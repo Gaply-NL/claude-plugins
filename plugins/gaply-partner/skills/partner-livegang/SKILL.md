@@ -11,6 +11,13 @@ description: >-
 
 # Partner-livegang
 
+> **Sinds 0.4.0 geldt deze skill alleen nog voor trajecten die onder de oude
+> flow zijn gestart.** Bij een nieuwe klant is de livegang geen apart moment
+> meer: na jouw seintje uit `partner-intake` draait Gaply de volledige
+> inrichting van A tot Z, inclusief promotie naar productie, en hoor je het
+> als alles live staat. Er is dan niets aan te vragen. Wat je ná dat
+> eind-seintje doet, staat in `partner-beheer`.
+
 **De livegang wordt uitgevoerd door Gaply, nooit door de partner.** Jouw rol
 is de voorbereiding: vaststellen dat alles er klaar voor is, het akkoord van
 de klant vastleggen, de aanvraag bij Gaply indienen en daarna de acties aan

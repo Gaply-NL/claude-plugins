@@ -5,6 +5,59 @@ Alle wijzigingen aan deze plugin worden hier bijgehouden. Versies volgen
 hun werkwijze moeten aanpassen, MINOR bij nieuwe of gewijzigde skills en
 prijslijst-/beleidswijzigingen, PATCH bij tekstuele fixes.
 
+## [0.4.0] — 2026-08-14
+
+### Gewijzigd
+- **`partner-intake`: het onderscheid demo/livegang is vervallen.** De intake
+  start pas na een getekende offerte, dus er is nog maar één drempel
+  (compleet) en daarna één ononderbroken inrichtingsrun. De skill beschrijft
+  nu het volledige proces: de partner seint dat de vragenlijst vol is, Gaply
+  controleert en draait de inrichting van A tot Z tot en met promotie naar
+  productie, en geeft een eind-seintje terug. Pas dán activeert de partner —
+  front-end (widget of API), klantaccounts, en tijdens of na de
+  partnertraining Search Console koppelen, focusgebieden aanmaken en
+  eventueel kantoor-IP's laten whitelisten. Search Console gaat bij voorkeur
+  vóór de focusgebieden.
+- **Tien besluiten over de vragenlijst verwerkt.** Eruit: CMS/technische
+  stack, de twee Search Console-velden, demo-deelnemers,
+  focusgebied-kandidaten, demo-datum, kantoor-IP's van de klant en
+  juridische bijzonderheden; de livegangsdatum stuurt niets meer. Verplicht
+  geworden: de datum van het offerte-akkoord
+  (`herkomst.offerte_datum_akkoord`) en het woordgebruik
+  (`toon.voorkeurswoorden`) — dat laatste mét een suggestieflow, waarin de
+  skill op basis van een sitescan zelf woorden voorstelt die de klant alleen
+  nog goed- of afkeurt.
+- **Topics expliciet gemaakt in `partner-intake`:** er is geen apart
+  topics-veld; Gaply leidt de project-topics af uit `scope.categorieen_in`,
+  `doelgroep.matrix`, `bezoekersvragen.lijst` en de sitemapstructuur. De
+  skill legt nu uit hoe de partner daaraan bijdraagt.
+- `partner-start` volgt de nieuwe route: één wachtmoment in plaats van twee,
+  en na het eind-seintje door naar `partner-beheer`.
+- `partner-livegang` geldt alleen nog voor trajecten die onder de oude flow
+  zijn gestart; bij nieuwe klanten zit de livegang in de A-Z-run van Gaply.
+- **README-uitsluiting genuanceerd:** de golden set *bewerken* blijft
+  Gaply-werk (`golden_set.manage` is super-admin-only), maar *lezen en
+  wijzigingen voorstellen* is partnerwerk.
+
+### Toegevoegd
+- Nieuwe skill **`partner-beheer`** (beheer en onderhoud na livegang):
+  - de golden set van de klant lezen, per entry reviewen (klopt de vraag; is
+    dít de pagina waarmee de klant beantwoord wíl worden; kloppen antwoord,
+    terugvalgedrag en serviceverwachting met de klantintentie) en aanvullen
+    vanuit klantkennis. De partner keurt en levert aan, Gaply voert door;
+  - de beheerinstructie voor de eindklant — die taak ligt vanaf nu
+    expliciet bij de partner, Gaply levert hem niet meer;
+  - een verbetercadans met terugkerend naloopwerk: golden-set-review, het
+    menselijke deel van de judge-ijkronde, nieuwe bezoekersvragen,
+    focusgebieden en gaten;
+  - een handoff-sectie met wat de partner bij het eind-seintje overneemt.
+- **Let op de permissies:** het lezen van de golden set en het indienen van
+  voorstellen loopt via de nieuwe capabilities `golden_set.read` en
+  `golden_set.suggest`. Die zijn bij het uitkomen van deze versie nog niet
+  uitgerold; tot dan levert Gaply de set als export bij het eind-seintje en
+  gaan voorstellen per mail. Zodra ze live zijn, moet Gaply ze aan de
+  Partnerrol toekennen — anders volgt een 403.
+
 ## [0.3.1] — 2026-08-12
 
 ### Toegevoegd
