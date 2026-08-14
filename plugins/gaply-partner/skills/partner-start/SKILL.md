@@ -11,7 +11,7 @@ description: >-
 
 # Partner-start
 
-Dit pakket heeft zes werk-skills. Deze zevende vertelt je welke je nodig
+Dit pakket heeft zeven werk-skills. Deze achtste vertelt je welke je nodig
 hebt. Stel eerst vast waar de klant staat, verwijs dan door — en begin niet
 zelf alvast aan werk dat bij een andere skill (of bij Gaply) hoort.
 
@@ -32,27 +32,26 @@ zelf alvast aan werk dat bij een andere skill (of bij Gaply) hoort.
 |---|---|---|
 | Nog geen getekende offerte | — | `partner-offerte` |
 | Akkoord, nog geen of onvolledige intake | geen project, of status `leeg` / `in_bewerking` | `partner-intake` — het compleetheidsrapport vertelt precies wat er nog mist |
-| Intake compleet, Gaply richt in | status `compleet_voor_demo` of hoger, maar zoeken/chat op de testomgeving levert nog niets op | **Wachtmoment 1** — zie hieronder |
-| Omgeving ingericht en testklaar | Gaply heeft testklaar gemeld; `search_knowledge_base` geeft resultaten op de testomgeving | `partner-focusgebieden` |
+| Intake compleet, seintje gegeven, Gaply richt in | status compleet (`compleet_voor_demo` of hoger), maar er is nog geen eind-seintje | **Wachtmoment** — zie hieronder |
+| Eind-seintje binnen: alles staat live | Gaply heeft gemeld dat de omgeving op productie draait | `partner-beheer` — activatie, beheerinstructie en de eerste golden-set-review |
+| Search Console gekoppeld, focusgebieden nog niet | `get_gsc_status` staat, `list_lenses` leeg | `partner-focusgebieden` |
 | Focusgebieden doorgerekend en met de klant besproken | `list_lenses`: lastRefreshedAt gevuld | `partner-contentvoorstellen` |
-| Content op orde, klant wil live | check status `compleet_voor_livegang` | `partner-livegang` — voorbereiden en aanvragen; de uitvoering doet Gaply (**wachtmoment 2**) |
-| Live | — | `partner-rapportage`, één volle kalendermaand na livegang |
+| Draait een maand | — | `partner-rapportage`, één volle kalendermaand na livegang; daarna de cadans uit `partner-beheer` |
 
-## De twee wachtmomenten
+## Het wachtmoment
 
-Op twee punten ligt de bal bij Gaply en is de juiste actie: melden en
-wachten, niet doorduwen.
+Er is nog één punt waarop de bal bij Gaply ligt en de juiste actie melden en
+wachten is, niet doorduwen: **na de intake**.
 
-1. **Na de intake.** Zodra het rapport `compleet_voor_demo` (of hoger)
-   toont, meld je dat bij Gaply (info@gaply.nl) — er is nog geen
-   automatische melding, dus zonder dit bericht weet Gaply niet dat je klaar
-   bent. Gaply richt daarna de omgeving in (bronnen, crawl, motor) en meldt
-   wanneer de testomgeving klaarstaat. Pas dán heeft `partner-focusgebieden`
-   iets om op te bouwen.
-2. **Na de livegang-aanvraag.** `partner-livegang` dient de aanvraag in;
-   Gaply voert uit (synchronisatie, sleutels, widget) en levert de
-   tag-/embed-instructie terug. Jij coördineert daarna alleen de plaatsing
-   aan klantzijde.
+Zodra het compleetheidsrapport niets verplichts meer mist, meld je dat bij
+Gaply (info@gaply.nl) — er is geen automatische melding, dus zonder dit
+bericht weet Gaply niet dat je klaar bent. Gaply controleert de context en
+draait daarna de volledige inrichting van A tot Z, tot en met promotie naar
+productie, zonder tussenstops. Er is geen demo-gate en geen aparte
+livegang-aanvraag meer. Je hoort het als alles live staat (het
+**eind-seintje**); pas dán begint jouw activatiewerk — front-end,
+klantaccounts, Search Console, focusgebieden — en loopt het beheer door via
+`partner-beheer`.
 
 ## Grenzen
 
