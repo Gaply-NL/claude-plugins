@@ -5,7 +5,7 @@ De partner doet de sales en de implementatie richting de eindklant; Gaply
 draait het systeem. Deze plugin geeft de agent van de partner precies de
 werkstromen die daarbij horen.
 
-## De acht skills
+## De negen skills
 
 **Start hier:** weet je niet welke skill je nodig hebt, zeg dan gewoon
 "nieuwe klant" of "wat is de volgende stap voor [klant]" — de skill
@@ -22,6 +22,7 @@ momenten waarop je op Gaply wacht.
 | partner-rapportage | Maandrapportage per eindklant, met roadmap per focusgebied |
 | partner-livegang | Livegang voorbereiden en aanvragen — de uitvoering (sync, keys, widget) doet Gaply |
 | partner-beheer | Na livegang: golden set reviewen en voorstellen indienen, beheerinstructie voor de klant, verbetercadans |
+| partner-juridisch | De juridische documenten: lezen, PDF, akkoord namens je organisatie, acceptatiebewijs voor je eindklant |
 
 ## Installatie (door Gaply, per partner)
 
@@ -39,6 +40,24 @@ De Partnerrol kan bewust NIET bij de broninrichting (datasources), de zoek- en
 AI-instellingen en het platformbeheer. Dat is de motorkap van Gaply. Loopt een
 skill daar tegenaan (403 of ontbrekende tool), dan is dat correct gedrag: meld
 het bij Gaply (info@gaply.nl) in plaats van een omweg te zoeken.
+
+### Verwerker of subverwerker — waar jij staat
+
+Wie welke rol heeft in de privacywetgeving hangt af van wie het contract met de
+eindklant heeft, en dat verschilt per traject. Sluit de klant **rechtstreeks**
+met Gaply, dan is Gaply verwerker en is de klant verwerkingsverantwoordelijke.
+Loopt de klant **via jou** — de normale situatie in dit pakket — dan heb jij het
+contract met de eindklant, ben jij zijn verwerker, en is Gaply **subverwerker**
+in die keten.
+
+Praktisch betekent dat drie dingen. De verwerkersovereenkomst die jij accepteert
+is die tussen jouw organisatie en Gaply, niet die tussen jou en je klant; die
+tweede blijft jouw eigen document. Jouw eindklant mag van jou verlangen dat je
+aantoont onder welke voorwaarden je subverwerkers werken — daarvoor bestaat het
+acceptatiebewijs. En jij bent het aanspreekpunt van die klant, ook over deze
+documenten: vragen over de inhoud stel je aan Gaply, maar het antwoord geef je
+zelf. De skill `partner-juridisch` beschrijft het hele pad, inclusief wie mag
+tekenen en wat er in het bewijsstuk staat.
 
 Voor de **golden set** ligt het genuanceerder: *bewerken* blijft Gaply-werk
 (`golden_set.manage` is super-admin-only — de set is de antwoordsleutel),
