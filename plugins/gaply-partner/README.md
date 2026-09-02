@@ -5,7 +5,7 @@ De partner doet de sales en de implementatie richting de eindklant; Gaply
 draait het systeem. Deze plugin geeft de agent van de partner precies de
 werkstromen die daarbij horen.
 
-## De acht skills
+## De negen skills
 
 **Start hier:** weet je niet welke skill je nodig hebt, zeg dan gewoon
 "nieuwe klant" of "wat is de volgende stap voor [klant]" — de skill
@@ -16,7 +16,8 @@ momenten waarop je op Gaply wacht.
 |---|---|
 | partner-start | Wegwijzer: waar staat de klant, welke skill is nu aan zet |
 | partner-offerte | Offerte-PDF in partnerhuisstijl op de vaste Gaply-prijslijst |
-| partner-intake | Na akkoord: de klantcontext invullen in de projectcontext van Gaply — live vragenlijst, validatierapport in de respons, seintje aan Gaply |
+| partner-contract | Na akkoord, vóór de intake: aanvraagformulier + verplichte verwerkersovereenkomst per project (en NDA per partner) aanvragen bij Gaply en de tekenronde bewaken |
+| partner-intake | Na de getekende contractset: de klantcontext invullen in de projectcontext van Gaply — live vragenlijst, validatierapport in de respons, seintje aan Gaply |
 | partner-focusgebieden | Focusgebieden opzetten, doorrekenen en duiden met de klant |
 | partner-contentvoorstellen | Van contentgat naar geplaatste, geverifieerde content |
 | partner-rapportage | Maandrapportage per eindklant, met roadmap per focusgebied |
@@ -34,6 +35,13 @@ momenten waarop je op Gaply wacht.
    wordt door Gaply beheerd; de partner past die niet aan.
 
 ## Rolverdeling (belangrijk voor de agent)
+
+Elk klantproject begint met een getekende contractset: het aanvraagformulier
+en de verwerkersovereenkomst (verplicht, onlosmakelijk onderdeel), naast de
+geheimhoudingsovereenkomst die per partner één keer wordt getekend. Gaply
+zet die documenten in PandaDoc klaar; de partner levert de gegevens aan
+(skill `partner-contract`). Zonder getekende set geen intake, geen project
+en geen toegang.
 
 De Partnerrol kan bewust NIET bij de broninrichting (datasources), de zoek- en
 AI-instellingen en het platformbeheer. Dat is de motorkap van Gaply. Loopt een

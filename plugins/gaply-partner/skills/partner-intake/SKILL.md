@@ -7,7 +7,8 @@ description: >-
   validatierapport dat direct terugkomt en geeft daarna het seintje waarmee
   Gaply de volledige inrichting start. Gebruik bij "intake voor [klant]",
   "nieuwe klant aanmelden", "overdracht naar Gaply", "wat heeft Gaply nodig"
-  of direct na een akkoord op een offerte.
+  of zodra de contractset (aanvraagformulier + verwerkersovereenkomst) voor
+  een project getekend is.
 ---
 
 # Partner-intake (overdracht naar Gaply)
@@ -27,27 +28,34 @@ het document leest.
 
 ## Het proces: één run van A tot Z
 
-**De intake start pas als de offerte getekend is.** De klant ís dan al klant,
+**De intake start pas als de offerte getekend is én de contractset voor
+het project rond is**: het aanvraagformulier en de verwerkersovereenkomst
+(beide per project, de verwerkersovereenkomst is verplicht en onlosmakelijk
+onderdeel) plus de geheimhoudingsovereenkomst van de partner. Die stap loopt
+via de skill `partner-contract`; zonder bevestiging van Gaply dat de set
+getekend is, begin je niet. De klant ís dan al klant,
 dus er is geen demo-drempel meer: het onderscheid tussen "compleet voor de
 demo" en "compleet voor livegang" is vervallen. Er is één drempel — de
 context is compleet — en daarna één ononderbroken inrichtingsrun.
 
-1. **Getekende offerte** → jij begint de intake.
-2. Je vult de projectcontext in tot het validatierapport niets verplichts
+1. **Getekende offerte** → contractset via `partner-contract`
+   (aanvraagformulier + verwerkersovereenkomst; NDA als die er nog niet is).
+2. **Contractset getekend en bevestigd door Gaply** → jij begint de intake.
+3. Je vult de projectcontext in tot het validatierapport niets verplichts
    meer mist.
-3. **Het seintje.** Je meldt bij Gaply (info@gaply.nl) dat de vragenlijst
+4. **Het seintje.** Je meldt bij Gaply (info@gaply.nl) dat de vragenlijst
    volledig is ingevuld. Er is geen automatische melding: zonder dit bericht
    weet Gaply niet dat je klaar bent.
-4. Gaply controleert de context. Ontbreekt er toch iets, dan hoor je precies
+5. Gaply controleert de context. Ontbreekt er toch iets, dan hoor je precies
    wat — anders start de inrichting.
-5. **Gaply draait de volledige run van A tot Z**: bronnen en crawl,
+6. **Gaply draait de volledige run van A tot Z**: bronnen en crawl,
    afstelling van zoeken en chat, contentvoorstellen en inzichten, widget en
    vulling, promotie naar productie. Zonder tussenstops en zonder aparte
    livegang-aanvraag. De livegangsdatum van de klant is hierbij niet leidend;
    Gaply rolt door tot alles technisch live staat.
-6. **Het eind-seintje.** Gaply meldt je: alles staat live. Dan ben jij aan
+7. **Het eind-seintje.** Gaply meldt je: alles staat live. Dan ben jij aan
    zet.
-7. **Jouw activatiewerk**, ná het eind-seintje:
+8. **Jouw activatiewerk**, ná het eind-seintje:
    - Gaply implementeren op de front-end van de klant (widget of API);
    - klantaccounts aanmaken en de klant onboarden;
    - tijdens of na de partnertraining: Search Console koppelen,
@@ -56,7 +64,7 @@ context is compleet — en daarna één ononderbroken inrichtingsrun.
      voorkeur vóór je de focusgebieden aanmaakt**, dan zitten de
      GSC-zoekwoorden er meteen in. Later koppelen kan ook — de queries komen
      dan alsnog automatisch mee — maar vooraf is beter.
-8. Vanaf het eind-seintje loopt het beheer door: skill `partner-beheer`.
+9. Vanaf het eind-seintje loopt het beheer door: skill `partner-beheer`.
 
 Beloof de klant dus geen inrichtingsdatum op basis van zijn eigen
 livegangswens, en wacht na het seintje op Gaply in plaats van alvast te
@@ -65,6 +73,11 @@ beginnen aan focusgebieden of accounts.
 ## Werkwijze
 
 ### 0. Zorg dat het project bestaat
+
+Check eerst dat de contractset getekend is (bevestiging van Gaply op de
+aanvraag uit `partner-contract`). Is dat niet zo, stop hier en rond eerst
+die stap af; een project aanmaken voor een klant zonder getekend
+aanvraagformulier en verwerkersovereenkomst is niet de bedoeling.
 
 De vragenlijst ophalen kan altijd, maar de ingevulde context hangt aan een
 project. Bestaat er nog geen project voor deze klant (check met
@@ -247,3 +260,5 @@ daarna ga je gewoon verder waar je was (partieel wegschrijven mag altijd).
 - Doe geen toezeggingen over de inrichtingsduur namens Gaply; vraag het na.
 - Begin geen activatiewerk (front-end, klantaccounts, Search Console,
   focusgebieden) vóór het eind-seintje binnen is.
+- Begin geen intake vóór de contractset (aanvraagformulier +
+  verwerkersovereenkomst) getekend is.

@@ -11,7 +11,7 @@ description: >-
 
 # Partner-start
 
-Dit pakket heeft zeven werk-skills. Deze achtste vertelt je welke je nodig
+Dit pakket heeft acht werk-skills. Deze negende vertelt je welke je nodig
 hebt. Stel eerst vast waar de klant staat, verwijs dan door — en begin niet
 zelf alvast aan werk dat bij een andere skill (of bij Gaply) hoort.
 
@@ -22,7 +22,10 @@ zelf alvast aan werk dat bij een andere skill (of bij Gaply) hoort.
    Een 403 is in dit pakket nooit iets om omheen te werken.
 2. **Bestaat het project al?** — `list_projects` in je eigen organisatie.
    - **Nee** → is de offerte getekend? Zo nee: `partner-offerte`. Zo ja:
-     `partner-intake` (die begint met het aanmaken van het project, stap 0).
+     is de contractset getekend (aanvraagformulier én verwerkersovereenkomst
+     voor dit project, plus de geheimhoudingsovereenkomst van de partner)?
+     Zo nee: `partner-contract`. Zo ja: `partner-intake` (die begint met het
+     aanmaken van het project, stap 0).
    - **Ja** → lees `get_project_context` en kijk naar
      `completeness.status`; de tabel hieronder wijst de weg.
 
@@ -31,7 +34,8 @@ zelf alvast aan werk dat bij een andere skill (of bij Gaply) hoort.
 | Waar de klant staat | Signaal | Skill / actie |
 |---|---|---|
 | Nog geen getekende offerte | — | `partner-offerte` |
-| Akkoord, nog geen of onvolledige intake | geen project, of status `leeg` / `in_bewerking` | `partner-intake` — het compleetheidsrapport vertelt precies wat er nog mist |
+| Offerte akkoord, contractset nog niet getekend | geen bevestiging van Gaply dat aanvraagformulier + verwerkersovereenkomst getekend zijn | `partner-contract` — **verplicht vóór de intake**; de verwerkersovereenkomst is onlosmakelijk onderdeel |
+| Contractset getekend, nog geen of onvolledige intake | geen project, of status `leeg` / `in_bewerking` | `partner-intake` — het compleetheidsrapport vertelt precies wat er nog mist |
 | Intake compleet, seintje gegeven, Gaply richt in | status compleet (`compleet_voor_demo` of hoger), maar er is nog geen eind-seintje | **Wachtmoment** — zie hieronder |
 | Eind-seintje binnen: alles staat live | Gaply heeft gemeld dat de omgeving op productie draait | `partner-beheer` — activatie, beheerinstructie en de eerste golden-set-review |
 | Search Console gekoppeld, focusgebieden nog niet | `get_gsc_status` staat, `list_lenses` leeg | `partner-focusgebieden` |
@@ -40,8 +44,10 @@ zelf alvast aan werk dat bij een andere skill (of bij Gaply) hoort.
 
 ## Het wachtmoment
 
-Er is nog één punt waarop de bal bij Gaply ligt en de juiste actie melden en
-wachten is, niet doorduwen: **na de intake**.
+Er zijn twee punten waarop de bal bij Gaply ligt en de juiste actie melden
+en wachten is, niet doorduwen: **na de contractaanvraag** (Gaply zet de
+documenten klaar en verstuurt ze; jij bewaakt alleen dat ze getekend
+worden) en **na de intake**.
 
 Zodra het compleetheidsrapport niets verplichts meer mist, meld je dat bij
 Gaply (info@gaply.nl) — er is geen automatische melding, dus zonder dit

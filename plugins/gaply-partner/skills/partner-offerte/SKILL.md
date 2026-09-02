@@ -103,5 +103,9 @@ gebruiker.
 
 ## Na akkoord
 
-Wijs de gebruiker op de volgende stap: de intake met de klant via de skill
-`partner-intake`, zodat Gaply de omgeving kan inrichten.
+Wijs de gebruiker op de volgende stap: de contractset via de skill
+`partner-contract` — per project een aanvraagformulier plus de verplichte
+verwerkersovereenkomst (en éénmalig per partner de
+geheimhoudingsovereenkomst). Pas als die getekend is, volgt de intake via
+`partner-intake`, zodat Gaply de omgeving kan inrichten. Noteer de datum van
+het akkoord; die is bij de contractaanvraag en de intake verplicht.
