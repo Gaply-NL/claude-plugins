@@ -5,7 +5,7 @@ Alle wijzigingen aan deze plugin worden hier bijgehouden. Versies volgen
 hun werkwijze moeten aanpassen, MINOR bij nieuwe of gewijzigde skills en
 prijslijst-/beleidswijzigingen, PATCH bij tekstuele fixes.
 
-## [0.5.0] — 2026-09-02
+## [1.1.0] — 2026-09-03
 
 ### Toegevoegd
 - Nieuwe skill **`partner-contract`**: de contractstap tussen offerte-akkoord
@@ -28,6 +28,69 @@ prijslijst-/beleidswijzigingen, PATCH bij tekstuele fixes.
   getekend is; stap 0 checkt dat expliciet.
 - `partner-offerte` verwijst na akkoord naar `partner-contract` in plaats
   van rechtstreeks naar de intake.
+
+## [1.0.0] — 2026-09-03
+
+**Eerste stabiele release.** Het werkproces is uitontwikkeld: van offerte en
+intake tot focusgebieden, contentvoorstellen, rapportage en beheer na livegang
+zit de hele keten in dit pakket, en met deze versie komt het laatste stuk erbij
+dat er nog buiten viel — het juridische. Een 0.x-nummer straalt "nog in
+ontwikkeling" uit, en dat past niet bij iets waar partners hun klantafspraken
+op baseren.
+
+Nieuw in deze release is het juridische deel, dat tot nu toe per mail werd
+geregeld.
+
+### Toegevoegd
+- Nieuwe skill **`partner-juridisch`**: de drie documenten (algemene
+  voorwaarden, verwerkersovereenkomst, security-bijlage), waar ze staan, wie
+  ze mag accepteren en hoe je het akkoord zet. Reden om er een eigen skill van
+  te maken in plaats van een alinea in `partner-intake`: het akkoord hangt aan
+  je **organisatie**, niet aan een klant, en kan dus op elk moment opkomen —
+  bij je eerste klant, of jaren later bij een nieuwe documentversie.
+- **Acceptatie is een organisatiestap, geen projectstap.** Eén keer akkoord
+  dekt al je projecten; bij een nieuw gepubliceerde documentversie komt de
+  gate terug. `partner-intake` en `partner-beheer` verwijzen er allebei naar
+  op het moment ná het eind-seintje, zodat het bij de eerste klant niet
+  vergeten wordt en bij de volgende alleen nog een controle is.
+- **Het acceptatiebewijs** staat beschreven als wat het is: het stuk waarmee
+  je richting je eindklant aantoont dat je subverwerkers onder een
+  gelijkwaardige overeenkomst werken (art. 7.3). Het bevat documenttype,
+  versie, contenthash, naam en e-mailadres van de accepteerder en het
+  tijdstip — bewust géén IP-adres.
+- **De rol `Tekenbevoegd`** is uitgelegd als de oplossing voor het geval dat
+  in de praktijk het vaakst voorkomt: de tekenbevoegde is niet de dagelijkse
+  beheerder en ziet de acceptatiepagina daarom niet. Die rol draagt alleen de
+  juridische rechten en komt *naast* een bestaande rol, zodat niemand een
+  bredere toegang krijgt dan nodig. Aan te vragen bij Gaply.
+- **Verwerker versus subverwerker** staat nu in de README-rolverdeling: bij een
+  directe klant is Gaply verwerker, bij een klant via de partner is de partner
+  verwerker en Gaply subverwerker. Dat onderscheid bepaalt wie tekent en
+  waarom de eindklant het bewijs mag opvragen — zonder die twee alinea's
+  belandde die vraag steeds bij Gaply in plaats van bij de partner.
+
+### Gewijzigd
+- **`partner-intake`: "juridische bijzonderheden" is uit de vervallen-lijst
+  gehaald en vervangen door drie gerichte velden** —
+  `juridisch.verwerkersrol` (`direct` of `partner`),
+  `juridisch.tekenbevoegde` (naam + e-mailadres) en
+  `juridisch.bewaartermijn_dagen`. Het oude verzamelveld werd niet gebruikt en
+  is daarom in 0.4.0 geschrapt; deze drie sturen wél iets aan. Zonder de
+  tekenbevoegde kan Gaply de juiste rol niet toekennen, en dan ziet die
+  persoon het akkoord straks simpelweg niet staan.
+- **De bewaartermijn is uitgelegd in plaats van alleen gevraagd.** Leeg laten
+  betekent de standaard van 365 dagen, en dat is een keuze, geen ontbrekend
+  antwoord. Ná de termijn verdwijnen de rúwe vragen en gesprekken terwijl de
+  tellingen blijven staan — die nuance staat er expliciet bij, omdat "dan zien
+  we toch niets meer?" anders de eerste vraag van elke klant is.
+- **`partner-start`** routeert een openstaand akkoord, een nieuwe
+  documentversie en een klant die om de verwerkersovereenkomst vraagt naar
+  `partner-juridisch`, met de aantekening dat die route naast het traject
+  loopt en geen fase is.
+- **`partner-beheer`** noemt de akkoordcontrole in de overname-checklist en
+  neemt de juridische verhouding op in de beheerinstructie voor de eindklant —
+  uit jezelf vertellen is goedkoper dan het antwoord schuldig blijven als de
+  privacy-officer van de klant erom vraagt.
 
 ## [0.4.0] — 2026-08-14
 

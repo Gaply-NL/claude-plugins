@@ -64,6 +64,11 @@ context is compleet — en daarna één ononderbroken inrichtingsrun.
      voorkeur vóór je de focusgebieden aanmaakt**, dan zitten de
      GSC-zoekwoorden er meteen in. Later koppelen kan ook — de queries komen
      dan alsnog automatisch mee — maar vooraf is beter.
+   - **controleren of het juridische akkoord van jóúw organisatie staat.** Dat
+     akkoord hangt aan je organisatie, niet aan deze klant: heb je het al eens
+     gegeven en is er sindsdien geen nieuwe documentversie gepubliceerd, dan
+     is dit alleen een controle. Is dit je eerste klant, dan moet de
+     tekenbevoegde het daadwerkelijk nog zetten — skill `partner-juridisch`.
 9. Vanaf het eind-seintje loopt het beheer door: skill `partner-beheer`.
 
 Beloof de klant dus geen inrichtingsdatum op basis van zijn eigen
@@ -225,11 +230,36 @@ opzet is en geen omissie:
 | Focusgebied-kandidaten | Focusgebieden zijn partnerwerk ná livegang, niet nodig voor de inrichting |
 | Demo-datum | Idem: geen demo-gate |
 | Kantoor-IP's van de klant | Komt bij de partnertraining, later toe te voegen |
-| Juridische bijzonderheden | Niet gebruikt in de inrichting |
 
 De **livegangsdatum** is eveneens vervallen als sturend veld: Gaply plant er
 niets meer op. Staat hij nog in het template, vul 'm dan hoogstens
 informatief in en hang er geen verwachting aan.
+
+## Drie juridische velden — nieuw, en wél gevraagd
+
+Het oude verzamelveld "juridische bijzonderheden" is vervangen door drie
+gerichte vragen. Ze zijn kort te beantwoorden, maar ze sturen echt iets aan:
+zonder deze drie loopt de inrichting later vast op iets wat niemand meer snel
+kan oplossen.
+
+| Veld | Wat je invult |
+|---|---|
+| `juridisch.verwerkersrol` | `direct` als de klant rechtstreeks met Gaply contracteert, `partner` als de klant via jou loopt. In dit pakket is `partner` de normale waarde: jij bent dan de verwerker en Gaply de subverwerker. Zie de skill `partner-juridisch`. |
+| `juridisch.tekenbevoegde` | Naam **en** e-mailadres van de persoon die namens de organisatie mag tekenen. Gaply gebruikt dit om die persoon de juiste rol te geven; zonder naam en adres kan dat niet, en dan ziet hij het akkoord straks niet staan. |
+| `juridisch.bewaartermijn_dagen` | Hoe lang de zoek- en chatvragen van bezoekers bewaard mogen blijven, in dagen. **Laat het leeg als de klant geen eis heeft** — dan geldt de standaard van 365 dagen. Dat is geen ontbrekend antwoord maar een keuze. |
+
+Over die derde: ná de bewaartermijn verdwijnen de **rúwe** vragen en
+gesprekken, terwijl de **tellingen** blijven staan (hoe vaak iets gevraagd
+werd, welke vervolgvragen er waren, waar de gaten zaten). Een klant die om een
+korte termijn vraagt, verliest dus niet zijn rapportage — hij verliest de
+mogelijkheid om een individuele vraag van lang geleden terug te lezen. Leg dat
+zo uit; het antwoord op de vraag "maar dan zien we toch niets meer?" is nee.
+
+Wat je er meteen bij kunt zeggen als de klant doorvraagt: van bezoekers wordt
+géén IP-adres bewaard (alleen een dag-wisselende code, zodat de bezoekerstelling
+klopt zonder iemand te kunnen volgen), en contactgegevens die iemand in de
+zoekbalk typt — e-mailadres, telefoonnummer, BSN-vormige reeks — worden bij het
+opslaan gemaskeerd.
 
 ## Search Console: ná de inrichting, door de partner zelf
 

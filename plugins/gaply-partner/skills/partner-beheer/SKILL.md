@@ -34,7 +34,10 @@ gebouwd, en de nulmeting die daarop is gedraaid. Vanaf dat moment:
 3. **Schrijf de beheerinstructie** voor de eindklant (zie hieronder).
 4. **Loop de golden set na** — de eerste review hoort bij de overdracht, niet
    pas bij de eerste cadansronde.
-5. Plan de eerste maandrapportage in (skill `partner-rapportage`), één volle
+5. **Controleer of het juridische akkoord van je organisatie staat** — dat is
+   een eenmalige stap per organisatie, geen stap per klant, maar bij je eerste
+   klant valt hij hier. Skill `partner-juridisch`.
+6. Plan de eerste maandrapportage in (skill `partner-rapportage`), één volle
    kalendermaand na livegang.
 
 ### Voorwaarde: de Partnerrol heeft nieuwe permissies nodig
@@ -113,7 +116,11 @@ Wat er minimaal in hoort:
 - hoe ze iets melden dat niet klopt — en bij wie: bij jou, niet bij Gaply;
 - wat er verandert als hun site verandert (nieuwe pagina's komen mee met de
   crawl, een nieuwe domeinnaam of een verhuizing niet automatisch — dat
-  melden ze).
+  melden ze);
+- hoe het juridisch geregeld is: dat jij hun verwerker bent en Gaply
+  subverwerker, en dat je op verzoek de verwerkersovereenkomst en het
+  acceptatiebewijs kunt overleggen (skill `partner-juridisch`) — noem het uit
+  jezelf, want een privacy-officer vraagt er anders later alsnog naar.
 
 Neem de instructie door tijdens de onboarding van de klantaccounts; een
 document dat alleen wordt gemaild, wordt niet gelezen.
