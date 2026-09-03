@@ -11,7 +11,7 @@ description: >-
 
 # Partner-start
 
-Dit pakket heeft zeven werk-skills. Deze achtste vertelt je welke je nodig
+Dit pakket heeft acht werk-skills. Deze negende vertelt je welke je nodig
 hebt. Stel eerst vast waar de klant staat, verwijs dan door — en begin niet
 zelf alvast aan werk dat bij een andere skill (of bij Gaply) hoort.
 
@@ -37,6 +37,7 @@ zelf alvast aan werk dat bij een andere skill (of bij Gaply) hoort.
 | Search Console gekoppeld, focusgebieden nog niet | `get_gsc_status` staat, `list_lenses` leeg | `partner-focusgebieden` |
 | Focusgebieden doorgerekend en met de klant besproken | `list_lenses`: lastRefreshedAt gevuld | `partner-contentvoorstellen` |
 | Draait een maand | — | `partner-rapportage`, één volle kalendermaand na livegang; daarna de cadans uit `partner-beheer` |
+| Er staat een juridisch akkoord open, er is een nieuwe documentversie gepubliceerd, of een klant vraagt om de verwerkersovereenkomst of het acceptatiebewijs | melding in het dashboard, of `get_legal_acceptance_status` op je eigen organisatie meldt iets openstaands | `partner-juridisch` |
 
 ## Het wachtmoment
 
@@ -52,6 +53,11 @@ livegang-aanvraag meer. Je hoort het als alles live staat (het
 **eind-seintje**); pas dán begint jouw activatiewerk — front-end,
 klantaccounts, Search Console, focusgebieden — en loopt het beheer door via
 `partner-beheer`.
+
+Die route loopt **naast** het traject, niet erin: het juridische akkoord hangt
+aan je organisatie en niet aan een klant, dus het kan op elk moment opkomen —
+bij de eerste klant, of jaren later bij een nieuwe documentversie. Zie het als
+een eigen ingang, geen fase.
 
 ## Grenzen
 
