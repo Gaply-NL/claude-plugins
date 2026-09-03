@@ -5,6 +5,30 @@ Alle wijzigingen aan deze plugin worden hier bijgehouden. Versies volgen
 hun werkwijze moeten aanpassen, MINOR bij nieuwe of gewijzigde skills en
 prijslijst-/beleidswijzigingen, PATCH bij tekstuele fixes.
 
+## [1.1.0] — 2026-09-03
+
+### Toegevoegd
+- Nieuwe skill **`partner-contract`**: de contractstap tussen offerte-akkoord
+  en intake. Per project wordt een **aanvraagformulier** getekend met de
+  **verwerkersovereenkomst als verplicht, onlosmakelijk onderdeel**; per
+  partner éénmalig de geheimhoudingsovereenkomst. De skill verzamelt de
+  gegevens die Gaply nodig heeft, dient de aanvraag in bij info@gaply.nl en
+  bewaakt de tekenronde. De documenten zelf maakt en verstuurt Gaply vanuit
+  PandaDoc.
+
+### Gewijzigd
+- De PandaDoc-sjablonen van Gaply gelden nu voor **partners én direct
+  afnemende eindklanten** (keuze "directe afname" of "afname via een
+  partner" in aanvraagformulier en verwerkersovereenkomst). Voor de partner
+  verandert de werkwijze niet, behalve dat de verwerkersovereenkomst niet
+  langer "waar nodig" maar altijd wordt gesloten.
+- `partner-start` kent een extra stap in de route (contractset getekend?)
+  en een tweede wachtmoment (na de contractaanvraag).
+- `partner-intake` start pas na bevestiging van Gaply dat de contractset
+  getekend is; stap 0 checkt dat expliciet.
+- `partner-offerte` verwijst na akkoord naar `partner-contract` in plaats
+  van rechtstreeks naar de intake.
+
 ## [1.0.0] — 2026-09-03
 
 **Eerste stabiele release.** Het werkproces is uitontwikkeld: van offerte en

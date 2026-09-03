@@ -9,7 +9,7 @@ elke partner draait bij de volgende update hetzelfde, actuele werkproces.
 
 | Plugin | Versie | Voor wie |
 |---|---|---|
-| [gaply-partner](plugins/gaply-partner) | 1.0.0 | Implementatiepartners: offertes, intake, focusgebieden, contentvoorstellen, rapportage, livegang, beheer, juridische documenten |
+| [gaply-partner](plugins/gaply-partner) | 1.1.0 | Implementatiepartners: offertes, contractstap, intake, focusgebieden, contentvoorstellen, rapportage, livegang, beheer, juridische documenten |
 
 Nieuwe extensies (bijvoorbeeld een sales- of implementatiepakket) komen als
 extra map onder `plugins/` en als extra regel in
