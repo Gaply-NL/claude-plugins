@@ -42,7 +42,10 @@ context is compleet — en daarna één ononderbroken inrichtingsrun.
    (aanvraagformulier + verwerkersovereenkomst; NDA als die er nog niet is).
 2. **Contractset getekend en bevestigd door Gaply** → jij begint de intake.
 3. Je vult de projectcontext in tot het validatierapport niets verplichts
-   meer mist.
+   meer mist. **Tegelijk doe je de SEO-technische nulmeting van de site**
+   (skill `partner-nulmeting`, deel A): je analyseert de site toch al voor
+   de sitemap- en scopevelden. Wat daaruit komt en de inrichting raakt, zet
+   je in de context en noem je in het seintje.
 4. **Het seintje.** Je meldt bij Gaply (info@gaply.nl) dat de vragenlijst
    volledig is ingevuld. Er is geen automatische melding: zonder dit bericht
    weet Gaply niet dat je klaar bent.
@@ -57,13 +60,15 @@ context is compleet — en daarna één ononderbroken inrichtingsrun.
    zet.
 8. **Jouw activatiewerk**, ná het eind-seintje:
    - Gaply implementeren op de front-end van de klant (widget of API);
-   - klantaccounts aanmaken en de klant onboarden;
-   - tijdens of na de partnertraining: Search Console koppelen,
-     focusgebieden aanmaken (skill `partner-focusgebieden`) en eventueel de
-     kantoor-IP's van de klant laten whitelisten. **Koppel Search Console bij
-     voorkeur vóór je de focusgebieden aanmaakt**, dan zitten de
-     GSC-zoekwoorden er meteen in. Later koppelen kan ook — de queries komen
-     dan alsnog automatisch mee — maar vooraf is beter.
+   - klantaccounts aanmaken en de klant onboarden, **als de klant zelf in
+     Gaply meekijkt**. Ben jij het loket en logt de klant niet in, dan sla je
+     dit over;
+   - **direct na het eind-seintje Search Console koppelen**, daarna de
+     vraag-nulmeting draaien (skill `partner-nulmeting`, deel B) en op basis
+     daarvan de focusgebieden aanmaken (skill `partner-focusgebieden`).
+     Search Console gaat vóór de nulmeting en vóór de focusgebieden: zonder
+     die vragen meet je te weinig. Eventueel laat je daarna de kantoor-IP's
+     van de klant whitelisten;
    - **controleren of het juridische akkoord van jóúw organisatie staat.** Dat
      akkoord hangt aan je organisatie, niet aan deze klant: heb je het al eens
      gegeven en is er sindsdien geen nieuwe documentversie gepubliceerd, dan
@@ -216,6 +221,25 @@ hoe dan ook als eigen onderwerp moet bestaan (of juist niet mag ontstaan),
 zet dat er expliciet bij in de toelichting — dan neemt Gaply het mee bij het
 afleiden. Topics zelf aanmaken of wijzigen is Gaply-werk.
 
+## De nulmeting: deel A doe je nu
+
+Voor de velden `klant.sitemaps`, `scope.sitemap_overzicht` en de
+categorieën binnen en buiten scope haal je de sitemap op en loop je de site
+na. Dat is hetzelfde werk als de SEO-technische nulmeting uit de skill
+`partner-nulmeting`, dus doe het in één keer. Twee dingen neem je mee naar
+deze intake:
+
+- **Pagina's die in de kennisbank horen maar niet in de sitemap staan**
+  (bijvoorbeeld een pagina per vestiging). Gaply leest de site in via de
+  sitemap, dus wat daar ontbreekt, komt niet vanzelf mee. Zet het paginatype
+  met een voorbeeld-URL in `bijzonderheden.overig` en noem het in het
+  seintje. De klant laten herstellen heeft de voorkeur.
+- **Paginatypen die niet goed gelezen kunnen worden** (tekst die pas via
+  JavaScript verschijnt, inhoud achter een inlog). Idem.
+
+De rest van de technische bevindingen is SEO-advies aan de klant en hoort in
+het startrapport, niet in de projectcontext.
+
 ## Wat er niet meer gevraagd wordt (sinds 0.4.0)
 
 Deze velden zijn uit de vragenlijst gehaald. Vraag er niet meer naar en zoek
@@ -261,7 +285,7 @@ klopt zonder iemand te kunnen volgen), en contactgegevens die iemand in de
 zoekbalk typt — e-mailadres, telefoonnummer, BSN-vormige reeks — worden bij het
 opslaan gemaskeerd.
 
-## Search Console: ná de inrichting, door de partner zelf
+## Search Console: direct ná de inrichting, door de partner zelf
 
 De koppeling met Google Search Console legt de partner zélf, via de
 Gaply-webinterface (inloggen met je eigen Gaply-account → omgeving →
@@ -270,9 +294,12 @@ en kan dus niet via MCP; controleren of hij staat kan wél via
 `get_gsc_status`. Gebruik het Google-account dat toegang heeft tot de
 property van de klant.
 
-Doe dit **niet tijdens de intake** maar ná het eind-seintje, tijdens of na de
-partnertraining — en bij voorkeur vóór je de focusgebieden aanmaakt. Gaply
-zit hier bewust niet tussen.
+Doe dit **niet tijdens de intake** maar direct ná het eind-seintje. De
+vraag-nulmeting (skill `partner-nulmeting`, deel B) en de focusgebieden
+bouwen op de vragen uit Search Console, dus koppel eerst en meet daarna.
+Regel de toegang tot de property van de klant daarom al tijdens de intake,
+zodat je na het eind-seintje niet hoeft te wachten. Gaply zit hier bewust
+niet tussen.
 
 ## Als de tool niet lukt
 
@@ -289,6 +316,8 @@ daarna ga je gewoon verder waar je was (partieel wegschrijven mag altijd).
   blijft bij Gaply.
 - Doe geen toezeggingen over de inrichtingsduur namens Gaply; vraag het na.
 - Begin geen activatiewerk (front-end, klantaccounts, Search Console,
-  focusgebieden) vóór het eind-seintje binnen is.
+  vraag-nulmeting, focusgebieden) vóór het eind-seintje binnen is. De
+  SEO-technische nulmeting (deel A) is geen activatiewerk: die doe je op de
+  openbare site en hoort juist vóór het seintje.
 - Begin geen intake vóór de contractset (aanvraagformulier +
   verwerkersovereenkomst) getekend is.

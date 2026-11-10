@@ -23,24 +23,29 @@ in samenspraak met de eindklant.
    lege data.
 2. Werk op de **testomgeving**. Focusgebieden aanmaken en wijzigen is op een
    productie-environment platformbreed geblokkeerd; dat is normaal gedrag,
-   geen rechtenprobleem. Livegang loopt via de skill `partner-livegang`.
+   geen rechtenprobleem. Staat een focusgebied goed op test, meld dan bij
+   Gaply (info@gaply.nl) welk focusgebied naar productie moet; het overzetten
+   doet Gaply. De meting op echte bezoekersvragen loopt op productie.
 3. Onzeker over je rechten: `get_my_access` toont wat je token kan.
 
 ## Werkwijze
 
 ### 1. Bepaal de focusgebieden met de klant
 
-Vertrekpunt is de projectcontext uit de intake: `get_project_context` geeft de
-focusgebied-kandidaten die daar al zijn vastgelegd (onderwerp, waarom,
-voorbeeldvragen), plus doelgroepen en vraagtypen. Dat is een startpunt, geen
-eindpunt — goede focusgebieden zijn onderwerpen waar bezoekersvragen over
-bestaan, niet de menustructuur van de site. Gebruik als aanvullende input wat
-bezoekers werkelijk doen: `get_interaction_frequency`
-en `list_interaction_logs` (echte zoekopdrachten en chatvragen),
-`get_gsc_queries` (Google-zoekwoorden als GSC gekoppeld is) en
-`get_insights_summary` / `list_insight_topics` voor de vraagclusters. Stel per
-focusgebied vast: naam, afbakening (wat hoort er wel en niet bij) en de
-doelgroep.
+Vertrekpunt is de vraag-nulmeting (skill `partner-nulmeting`, deel B):
+Inzichten laat over de hele site zien welke onderwerpen er leven en waar de
+meeste onbeantwoorde vragen zitten (`get_insights_summary`,
+`list_insight_topics`, `get_insight_topic_clusters`). Is die nulmeting er
+nog niet, doe die dan eerst. Kies de focusgebieden uit dat beeld, samen met
+wat de klant belangrijk vindt: goede focusgebieden zijn onderwerpen waar
+bezoekersvragen over bestaan, niet de menustructuur van de site.
+
+Aanvullende input: de doelgroepen en bezoekersvragen uit de projectcontext
+(`get_project_context`), wat bezoekers werkelijk doen
+(`get_interaction_frequency` en `list_interaction_logs`, als er een
+zoekfunctie of chat draait) en de zoekwoorden uit Google
+(`get_gsc_queries`). Stel per focusgebied vast: naam, afbakening (wat hoort
+er wel en niet bij) en de doelgroep.
 
 ### 2. Maak aan en reken door
 

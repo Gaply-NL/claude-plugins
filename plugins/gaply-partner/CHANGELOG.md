@@ -5,6 +5,63 @@ Alle wijzigingen aan deze plugin worden hier bijgehouden. Versies volgen
 hun werkwijze moeten aanpassen, MINOR bij nieuwe of gewijzigde skills en
 prijslijst-/beleidswijzigingen, PATCH bij tekstuele fixes.
 
+## [1.2.0] — 2026-11-10
+
+### Toegevoegd
+- Nieuwe skill **`partner-nulmeting`**: de nulmeting aan het begin van een
+  traject, in twee delen die samen één startrapport vormen.
+  - **Deel A, SEO-technische nulmeting**, tegelijk met de analyse van de
+    site voor de intake: is de sitemap volledig, kan alles gelezen en
+    geïndexeerd worden, klopt de paginastructuur. Aanleiding is een
+    praktijkgeval waarin de vestigingspagina's van een klant niet in de
+    sitemap stonden. Gaply leest de site in via de sitemap, dus zo'n
+    bevinding hoort vóór het seintje bekend te zijn en is meteen een
+    concreet SEO-punt voor de partner richting de klant.
+  - **Deel B, vraag-nulmeting uit Inzichten**, na het eind-seintje en na het
+    koppelen van Search Console: onderwerpen en vraagclusters over de hele
+    site met hun dekking. Dit is de stap vóór de focusgebieden.
+  - De skill legt de gaten uit deel B naast de bevindingen uit deel A: een
+    gat dat komt doordat een pagina niet is ingelezen, los je technisch op
+    en niet met nieuwe content.
+- Veld **Vermelding van Gaply** in `config/branding.md` ("zichtbaar" of "op
+  de achtergrond"). Standaard zichtbaar, dus voor bestaande partners
+  verandert er niets. Het offertescript kent daarvoor
+  `meta.gaply_vermelding` (standaard `true`).
+
+### Gewijzigd
+- **Volgorde na het eind-seintje:** Search Console koppelen, dan de
+  vraag-nulmeting, dan de focusgebieden. `partner-start`, `partner-intake`
+  en `partner-beheer` volgen die volgorde. Search Console koppel je direct
+  na het eind-seintje en niet meer "tijdens of na de partnertraining".
+- **`partner-focusgebieden`** vertrekt vanuit de nulmeting (Inzichten) in
+  plaats van de focusgebied-kandidaten uit de projectcontext; dat veld is
+  sinds 0.4.0 al uit de vragenlijst. De verwijzing naar `partner-livegang`
+  voor het overzetten naar productie is vervangen: de partner meldt bij
+  Gaply welk focusgebied naar productie moet.
+- **Klantaccounts zijn een keuze, geen vaste stap.** Bij partners die als
+  loket werken logt de eindklant niet in. `partner-intake`,
+  `partner-beheer` (ook de beheerinstructie) en de README houden daar
+  rekening mee.
+- **`partner-beheer`: golden set.** De capabilities `golden_set.read` en
+  `golden_set.suggest` bestaan inmiddels in het platform, met de
+  bijbehorende tools. Ze zitten niet standaard in de Partnerrol; de skill
+  laat eerst `get_my_access` controleren en valt bij een 403 terug op export
+  en mail.
+- **`partner-start`** routeert een project dat al draait maar een lege
+  projectcontext heeft (van vóór de intake via de projectcontext) niet meer
+  terug naar de intake.
+- **`partner-rapportage`** gebruikt bij de eerste rapportage de nulmeting
+  als vergelijkingspunt en volgt voor de vermelding van Gaply
+  `config/branding.md`.
+- **`partner-offerte`**: de sitemap-analyse is de eerste stap van de
+  technische nulmeting; de vermelding van Gaply volgt `config/branding.md`.
+
+### Bewust niet in deze versie
+- De prijslijst en de prijsregels in `partner-offerte` zijn ongewijzigd.
+  Het partnermodel (de partner betaalt de pakketprijs en bepaalt zelf zijn
+  prijs richting de eindklant) vraagt een eigen besluit over de formulering
+  en over de setup.
+
 ## [1.1.0] — 2026-09-03
 
 ### Toegevoegd

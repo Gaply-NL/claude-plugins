@@ -12,7 +12,8 @@ description: >-
 
 De eindklant ziet elke maand hoe de zoekfunctie of chat presteert, waar
 bezoekers naar vragen en welke content er ontbreekt op de focusgebieden. De
-partner is afzender; het rapport vermeldt "in samenwerking met Gaply".
+partner is afzender. Of het rapport "in samenwerking met Gaply" vermeldt,
+staat in `config/branding.md` (veld Vermelding van Gaply).
 
 ## Twee harde regels (lees eerst)
 
@@ -51,7 +52,9 @@ geen gemeten focusgebied: overleg of een bereik-only rapport zin heeft.
 ## Stap 2 — De cijfers
 
 Periode: de volledige vorige kalendermaand, vergeleken met de maand ervoor
-(of "eerste volledige maand").
+(of "eerste volledige maand"). Bij de eerste rapportage is de nulmeting
+(skill `partner-nulmeting`) het vergelijkingspunt: noem wat er sinds dat
+startpunt is veranderd, in plaats van een vorige maand die er niet is.
 
 - **Bereik** (mag omgevingsbreed): `list_interaction_logs(channel, dateFrom,
   dateTo, limit=1)` → aggregates `total` en `empty`; aandeel zonder resultaat
@@ -84,8 +87,8 @@ HTML, print-klaar op A4, in de huisstijl van de eindklant; bovenaan de CSS één
 blok met de klantvariabelen (kleuren, logo). Bestandsnaam
 `<klant>-zoekrapportage-<maand>-<jaar>.html` (of `-chatrapportage-`).
 
-Secties, in volgorde: kop (klantlogo, "door [partner], in samenwerking met
-Gaply", periode); in het kort (vier of vijf zinnen, verhalend); vier
+Secties, in volgorde: kop (klantlogo, "door [partner]" met de vermelding
+van Gaply volgens `config/branding.md`, periode); in het kort (vier of vijf zinnen, verhalend); vier
 kerncijfers (bereikcijfers plus één dekkingscijfer dat expliciet per
 focusgebied is, met naam); wat er sinds vorige maand is gedaan (met datums);
 verloop over de maand (volume per week mag omgevingsbreed, dekking alleen per
