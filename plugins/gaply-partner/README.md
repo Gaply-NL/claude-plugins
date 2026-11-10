@@ -19,9 +19,9 @@ momenten waarop je op Gaply wacht.
 | partner-nulmeting | Aan het begin: SEO-technische nulmeting van de site (deel A, tijdens de intake) en vraag-nulmeting uit Inzichten (deel B, na de oplevering), samen in één startrapport |
 | partner-contract | Na akkoord, vóór de intake: aanvraagformulier + verplichte verwerkersovereenkomst per project (en NDA per partner) aanvragen bij Gaply en de tekenronde bewaken |
 | partner-intake | Na de getekende contractset: de klantcontext invullen in de projectcontext van Gaply — live vragenlijst, validatierapport in de respons, seintje aan Gaply |
-| partner-focusgebieden | Focusgebieden kiezen uit de nulmeting, opzetten, doorrekenen en duiden met de klant |
-| partner-contentvoorstellen | Van contentgat naar geplaatste, geverifieerde content |
-| partner-rapportage | Maandrapportage per eindklant, met roadmap per focusgebied |
+| partner-contentvoorstellen | Van contentgat naar geplaatste, geverifieerde content, vanuit de vraagclusters in Inzichten |
+| partner-rapportage | Maandrapportage per eindklant, met vraagbeeld en roadmap per onderwerp uit Inzichten |
+| partner-focusgebieden | Later en alleen waar nodig: de verdiepende gap-analyse op één onderwerp |
 | partner-livegang | Livegang voorbereiden en aanvragen — de uitvoering (sync, keys, widget) doet Gaply |
 | partner-beheer | Na livegang: golden set reviewen en voorstellen indienen, beheerinstructie voor de klant, verbetercadans |
 | partner-juridisch | De juridische documenten: lezen, PDF, akkoord namens je organisatie, acceptatiebewijs voor je eindklant |
@@ -51,6 +51,14 @@ De Partnerrol kan bewust NIET bij de broninrichting (datasources), de zoek- en
 AI-instellingen en het platformbeheer. Dat is de motorkap van Gaply. Loopt een
 skill daar tegenaan (403 of ontbrekende tool), dan is dat correct gedrag: meld
 het bij Gaply (info@gaply.nl) in plaats van een omweg te zoeken.
+
+### Inzichten eerst, focusgebieden later
+
+Een traject begint met Inzichten: het beeld over de hele site, per onderwerp
+en per vraagcluster. Daar stuurt de partner op, daar komen de
+contentvoorstellen uit en daar gaat de maandrapportage over. Een focusgebied
+is een verdieping op één onderwerp. Het wordt niet aan het begin opgezet en
+volgt uit wat Inzichten laat zien.
 
 ### De klant hoeft niet in te loggen
 

@@ -148,8 +148,10 @@ Regels voor de inhoud:
 
 Inzichten laat over de hele website zien welke vragen er leven, gegroepeerd
 in onderwerpen en vraagclusters, en per cluster of de site het antwoord
-heeft. Dit is de stap vóór de focusgebieden: eerst het hele beeld, dan
-kiezen waar je op stuurt.
+heeft. Hiermee begint elk traject. Je zet aan het begin geen focusgebieden
+op: je stuurt op de onderwerpen en vraagclusters uit Inzichten. Een
+focusgebied komt pas later, en alleen als een onderwerp een verdiepende
+gap-analyse verdient.
 
 ### B0. Voorwaarden
 
@@ -239,10 +241,12 @@ nooit iets rechtstreeks naar de eindklant.
 
 ## Hierna
 
-- Uit het vraagbeeld kies je met de klant de focusgebieden: skill
-  `partner-focusgebieden`.
-- De maandrapportage (`partner-rapportage`) verwijst naar de nulmeting als
-  startpunt.
+- Je werkt verder vanuit Inzichten. De grootste gaten per onderwerp gaan
+  naar `partner-contentvoorstellen`; de maandrapportage
+  (`partner-rapportage`) laat per onderwerp zien wat er sinds de nulmeting
+  is veranderd.
+- Een focusgebied zet je pas op als een onderwerp om verdieping vraagt:
+  skill `partner-focusgebieden`. Dat is geen vaste stap.
 - Herhaal deel A na een grote wijziging aan de site (nieuw ontwerp,
   verhuizing, nieuw CMS). De sitemap en de structuur zijn dan niet meer
   dezelfde.

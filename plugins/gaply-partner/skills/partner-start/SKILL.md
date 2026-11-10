@@ -46,8 +46,8 @@ zelf alvast aan werk dat bij een andere skill (of bij Gaply) hoort.
 | Intake compleet, seintje gegeven, Gaply richt in | status compleet (`compleet_voor_demo` of hoger), maar er is nog geen eind-seintje | **Wachtmoment** — zie hieronder |
 | Eind-seintje binnen: alles staat live | Gaply heeft gemeld dat de omgeving op productie draait | `partner-beheer` — activatie, beheerinstructie en de eerste golden-set-review |
 | Search Console gekoppeld, nog geen vraag-nulmeting | `get_gsc_status` staat, `get_gap_sources` toont vragen uit Search Console | `partner-nulmeting`, deel B (Inzichten over de hele site) |
-| Nulmeting klaar, focusgebieden nog niet | startrapport is compleet, `list_lenses` leeg | `partner-focusgebieden` — kies ze uit het vraagbeeld van de nulmeting |
-| Focusgebieden doorgerekend en met de klant besproken | `list_lenses`: lastRefreshedAt gevuld | `partner-contentvoorstellen` |
+| Nulmeting klaar | het startrapport is compleet | Werk vanuit Inzichten: `partner-contentvoorstellen` voor de grootste gaten per onderwerp. Zet nu geen focusgebieden op |
+| Een onderwerp vraagt om verdieping | een onderwerp uit Inzichten is groot of belangrijk genoeg voor een eigen, vaste meting | `partner-focusgebieden` — de verdiepende gap-analyse, later en alleen waar het iets toevoegt |
 | Draait een maand | — | `partner-rapportage`, één volle kalendermaand na livegang; daarna de cadans uit `partner-beheer` |
 | Er staat een juridisch akkoord open, er is een nieuwe documentversie gepubliceerd, of een klant vraagt om de verwerkersovereenkomst of het acceptatiebewijs | melding in het dashboard, of `get_legal_acceptance_status` op je eigen organisatie meldt iets openstaands | `partner-juridisch` |
 
@@ -65,13 +65,21 @@ draait daarna de volledige inrichting van A tot Z, tot en met promotie naar
 productie, zonder tussenstops. Er is geen demo-gate en geen aparte
 livegang-aanvraag meer. Je hoort het als alles live staat (het
 **eind-seintje**); pas dán begint jouw activatiewerk — front-end, Search
-Console, de vraag-nulmeting, focusgebieden en, als de klant zelf meekijkt,
+Console, de vraag-nulmeting uit Inzichten en, als de klant zelf meekijkt,
 klantaccounts — en loopt het beheer door via `partner-beheer`.
 
 Die route loopt **naast** het traject, niet erin: het juridische akkoord hangt
 aan je organisatie en niet aan een klant, dus het kan op elk moment opkomen —
 bij de eerste klant, of jaren later bij een nieuwe documentversie. Zie het als
 een eigen ingang, geen fase.
+
+## Inzichten eerst, focusgebieden later
+
+Een traject begint met Inzichten: het beeld over de hele site, per onderwerp
+en per vraagcluster. Daar stuur je op, daar komen de contentvoorstellen uit
+en daar rapporteer je over. Een focusgebied is een verdieping op één
+onderwerp en komt pas als dat onderwerp erom vraagt. Begin er dus niet mee,
+ook niet als de klant de term kent.
 
 ## Grenzen
 

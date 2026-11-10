@@ -29,10 +29,10 @@ gebouwd, en de nulmeting die daarop is gedraaid. Vanaf dat moment:
 1. **Implementeer Gaply op de front-end** van de klant (widget of API).
    Klantaccounts maak je alleen aan als de klant zelf in Gaply meekijkt; ben
    jij het loket en logt de klant niet in, dan sla je dat over.
-2. **Koppel Search Console**, draai daarna de vraag-nulmeting (skill
-   `partner-nulmeting`, deel B) en maak op basis daarvan de focusgebieden
-   aan (skill `partner-focusgebieden`). In die volgorde: Search Console,
-   nulmeting, focusgebieden.
+2. **Koppel Search Console** en draai daarna de vraag-nulmeting uit
+   Inzichten (skill `partner-nulmeting`, deel B). Daar stuur je in het begin
+   op. Focusgebieden zet je nu niet op; die komen later, als een onderwerp
+   verdieping vraagt (skill `partner-focusgebieden`).
 3. **Schrijf de beheerinstructie** voor de eindklant (zie hieronder).
 4. **Loop de golden set na** — de eerste review hoort bij de overdracht, niet
    pas bij de eerste cadansronde.
@@ -118,8 +118,8 @@ Wat er minimaal in hoort:
 - wat Gaply op hun site doet, in klanttaal, en waar het zichtbaar is;
 - wie welke rol heeft: wat de klant zelf doet (content aanpassen op de
   eigen site en, als hij een account heeft, inloggen en meekijken met wat
-  bezoekers vragen), wat via jou loopt (focusgebieden, contentvoorstellen,
-  rapportage) en wat via Gaply loopt (bronnen, zoek- en AI-instellingen, de
+  bezoekers vragen), wat via jou loopt (de inzichten, contentvoorstellen,
+  rapportage en eventueel een focusgebied) en wat via Gaply loopt (bronnen, zoek- en AI-instellingen, de
   meetlat). Logt de klant niet in, schrijf dan op hoe hij de inzichten wél
   krijgt: via jouw rapportage en jullie vaste overleg;
 - hoe ze iets melden dat niet klopt — en bij wie: bij jou, niet bij Gaply;
@@ -145,7 +145,7 @@ naast de maandrapportage — maandelijks bij veel verkeer, anders per kwartaal:
 | **Golden-set-review** | Loop de set na volgens de vier vragen hierboven, met de klant erbij. Neem in elk geval mee wat er sinds de vorige ronde is veranderd op de site en in het aanbod. |
 | **Judge-ijkronde (menselijk deel)** | Gaply ijkt de automatische beoordelaar routinematig met een AI-ronde. Het menselijke deel is naloopwerk: beoordeel een steekproef antwoorden zelf en meld waar jouw oordeel van dat van Gaply afwijkt. Systematische afwijking is een signaal, niet een detail. |
 | **Wat de bezoekers deden** | `get_interaction_frequency` en `list_interaction_logs`: welke nieuwe vragen zijn opgekomen, welke leverden niets op. Die horen vaak in de golden set of in een focusgebied. |
-| **Focusgebieden en gaten** | `list_lenses` en `get_lens_new_gaps`: zijn de focusgebieden nog de goede, zijn er nieuwe gaten? Grote gaten gaan door naar `partner-contentvoorstellen`. |
+| **Inzichten en gaten** | `list_insight_topics` en `list_missing_content`: welke onderwerpen zijn verschoven, welke gaten zijn erbij gekomen? Grote gaten gaan door naar `partner-contentvoorstellen`. Verdient een onderwerp inmiddels een focusgebied? Zijn er al focusgebieden: `list_lenses` en `get_lens_new_gaps`. |
 | **Beheerinstructie** | Klopt hij nog? Is de contactpersoon nog dezelfde? |
 
 Leg per ronde kort vast wat je hebt bekeken en wat je hebt ingediend, en wie

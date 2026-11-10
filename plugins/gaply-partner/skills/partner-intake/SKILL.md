@@ -63,12 +63,13 @@ context is compleet — en daarna één ononderbroken inrichtingsrun.
    - klantaccounts aanmaken en de klant onboarden, **als de klant zelf in
      Gaply meekijkt**. Ben jij het loket en logt de klant niet in, dan sla je
      dit over;
-   - **direct na het eind-seintje Search Console koppelen**, daarna de
-     vraag-nulmeting draaien (skill `partner-nulmeting`, deel B) en op basis
-     daarvan de focusgebieden aanmaken (skill `partner-focusgebieden`).
-     Search Console gaat vóór de nulmeting en vóór de focusgebieden: zonder
-     die vragen meet je te weinig. Eventueel laat je daarna de kantoor-IP's
-     van de klant whitelisten;
+   - **direct na het eind-seintje Search Console koppelen** en daarna de
+     vraag-nulmeting draaien (skill `partner-nulmeting`, deel B). Search
+     Console gaat vóór de nulmeting: zonder die vragen meet je te weinig.
+     Vanaf dan stuur je op Inzichten. **Focusgebieden maak je aan het begin
+     niet aan**; die komen later, als een onderwerp verdieping vraagt (skill
+     `partner-focusgebieden`). Eventueel laat je de kantoor-IP's van de
+     klant whitelisten;
    - **controleren of het juridische akkoord van jóúw organisatie staat.** Dat
      akkoord hangt aan je organisatie, niet aan deze klant: heb je het al eens
      gegeven en is er sindsdien geen nieuwe documentversie gepubliceerd, dan
@@ -295,8 +296,8 @@ en kan dus niet via MCP; controleren of hij staat kan wél via
 property van de klant.
 
 Doe dit **niet tijdens de intake** maar direct ná het eind-seintje. De
-vraag-nulmeting (skill `partner-nulmeting`, deel B) en de focusgebieden
-bouwen op de vragen uit Search Console, dus koppel eerst en meet daarna.
+vraag-nulmeting (skill `partner-nulmeting`, deel B) en Inzichten bouwen op
+de vragen uit Search Console, dus koppel eerst en meet daarna.
 Regel de toegang tot de property van de klant daarom al tijdens de intake,
 zodat je na het eind-seintje niet hoeft te wachten. Gaply zit hier bewust
 niet tussen.
@@ -316,7 +317,7 @@ daarna ga je gewoon verder waar je was (partieel wegschrijven mag altijd).
   blijft bij Gaply.
 - Doe geen toezeggingen over de inrichtingsduur namens Gaply; vraag het na.
 - Begin geen activatiewerk (front-end, klantaccounts, Search Console,
-  vraag-nulmeting, focusgebieden) vóór het eind-seintje binnen is. De
+  vraag-nulmeting) vóór het eind-seintje binnen is. De
   SEO-technische nulmeting (deel A) is geen activatiewerk: die doe je op de
   openbare site en hoort juist vóór het seintje.
 - Begin geen intake vóór de contractset (aanvraagformulier +

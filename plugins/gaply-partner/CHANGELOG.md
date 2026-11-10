@@ -19,7 +19,7 @@ prijslijst-/beleidswijzigingen, PATCH bij tekstuele fixes.
     concreet SEO-punt voor de partner richting de klant.
   - **Deel B, vraag-nulmeting uit Inzichten**, na het eind-seintje en na het
     koppelen van Search Console: onderwerpen en vraagclusters over de hele
-    site met hun dekking. Dit is de stap vóór de focusgebieden.
+    site met hun dekking. Hiermee begint het werk.
   - De skill legt de gaten uit deel B naast de bevindingen uit deel A: een
     gat dat komt doordat een pagina niet is ingelezen, los je technisch op
     en niet met nieuwe content.
@@ -29,15 +29,32 @@ prijslijst-/beleidswijzigingen, PATCH bij tekstuele fixes.
   `meta.gaply_vermelding` (standaard `true`).
 
 ### Gewijzigd
-- **Volgorde na het eind-seintje:** Search Console koppelen, dan de
-  vraag-nulmeting, dan de focusgebieden. `partner-start`, `partner-intake`
-  en `partner-beheer` volgen die volgorde. Search Console koppel je direct
-  na het eind-seintje en niet meer "tijdens of na de partnertraining".
-- **`partner-focusgebieden`** vertrekt vanuit de nulmeting (Inzichten) in
-  plaats van de focusgebied-kandidaten uit de projectcontext; dat veld is
-  sinds 0.4.0 al uit de vragenlijst. De verwijzing naar `partner-livegang`
-  voor het overzetten naar productie is vervangen: de partner meldt bij
-  Gaply welk focusgebied naar productie moet.
+- **Inzichten eerst, focusgebieden later.** Een traject begint met
+  Inzichten; aan het begin worden geen focusgebieden opgezet. Een
+  focusgebied is voortaan een verdieping op één onderwerp, later en alleen
+  als dat onderwerp erom vraagt, en volgt uit Inzichten. Dit raakt bijna
+  elke skill:
+  - `partner-start`, `partner-intake` en `partner-beheer`: na het
+    eind-seintje Search Console koppelen (direct, niet meer "tijdens of na
+    de partnertraining"), dan de vraag-nulmeting, en daarna sturen op
+    Inzichten. Geen stap "focusgebieden aanmaken" meer.
+  - `partner-contentvoorstellen` vertrekt vanuit de vraagclusters in
+    Inzichten (`list_missing_content`, `get_insight_topic_clusters`) en
+    start één voorstel per cluster (`start_content_proposal` met
+    `clusterId`). De route via een focusgebied blijft bestaan voor wie er
+    een heeft.
+  - `partner-rapportage`: **harde regel 1 is herschreven.** Dekking en
+    gaten rapporteer je per onderwerp uit Inzichten en, waar ze er zijn,
+    per focusgebied; nog steeds nooit als één cijfer over de hele omgeving.
+    Een rapport heeft geen focusgebied meer nodig. De roadmap komt uit de
+    vraagclusters, gegroepeerd per onderwerp.
+  - `partner-focusgebieden` beschrijft wanneer een focusgebied iets
+    toevoegt (eigen meetreeks, verdiepingsvragen van Google en
+    AI-zichtbaarheid, eigen afbakening) en wanneer niet. De verwijzing naar
+    de focusgebied-kandidaten uit de projectcontext (sinds 0.4.0 al uit de
+    vragenlijst) is weg, en die naar `partner-livegang` voor het overzetten
+    naar productie is vervangen: de partner meldt bij Gaply welk
+    focusgebied naar productie moet.
 - **Klantaccounts zijn een keuze, geen vaste stap.** Bij partners die als
   loket werken logt de eindklant niet in. `partner-intake`,
   `partner-beheer` (ook de beheerinstructie) en de README houden daar
@@ -52,7 +69,7 @@ prijslijst-/beleidswijzigingen, PATCH bij tekstuele fixes.
   terug naar de intake.
 - **`partner-rapportage`** gebruikt bij de eerste rapportage de nulmeting
   als vergelijkingspunt en volgt voor de vermelding van Gaply
-  `config/branding.md`.
+  `config/branding.md` (naast de herschreven regel hierboven).
 - **`partner-offerte`**: de sitemap-analyse is de eerste stap van de
   technische nulmeting; de vermelding van Gaply volgt `config/branding.md`.
 
