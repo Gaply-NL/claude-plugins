@@ -53,6 +53,11 @@ gepubliceerde content is laag. Nieuws krijgt standaard een 12-maandenfilter
 (ouder nieuws bevat verouderde informatie en schaadt de betrouwbaarheid van
 antwoorden).
 
+Deze sitemap-analyse is ook de eerste stap van de SEO-technische nulmeting
+(skill `partner-nulmeting`, deel A). Zie je nu al dat een paginatype in de
+sitemap ontbreekt, of dat een deel van de site niet gelezen kan worden,
+noteer dat dan: het hoort in het startrapport en later in de intake.
+
 ### 3. Bepaal varianten en prijzen
 
 Drie varianten, oplopend in scope. A = kern (aanbevolen: laagdrempelig starten
@@ -78,8 +83,11 @@ inhoud. Schrijfregels:
 - Sectie 5 (aanpak) in 4-6 korte subsecties; benoem daarin dat de technische
   inrichting (bronnen, zoek- en AI-instellingen) door Gaply wordt gedaan en
   dat de partner de implementatie begeleidt.
-- Het veld `meta.van` is de partner (uit `config/branding.md`), met de
-  toevoeging "in samenwerking met Gaply".
+- Het veld `meta.van` is de partner (uit `config/branding.md`). Staat het
+  veld Vermelding van Gaply daar op "zichtbaar", voeg dan "in samenwerking
+  met Gaply" toe. Staat het op "op de achtergrond", laat die toevoeging dan
+  weg en zet `meta.gaply_vermelding` in de config op `false`; de voetregel
+  "Powered by Gaply" vervalt dan ook.
 
 Genereer daarna:
 

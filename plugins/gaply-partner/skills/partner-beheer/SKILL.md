@@ -26,11 +26,13 @@ Bij het eind-seintje krijg je van Gaply de stand van zaken van de nieuwe
 omgeving: de productie-omgeving, de golden set die tijdens de inrichting is
 gebouwd, en de nulmeting die daarop is gedraaid. Vanaf dat moment:
 
-1. **Implementeer Gaply op de front-end** van de klant (widget of API) en
-   maak de klantaccounts aan.
-2. **Koppel Search Console** en maak daarna de focusgebieden aan (skill
-   `partner-focusgebieden`) — tijdens of na de partnertraining. GSC eerst,
-   dan de focusgebieden.
+1. **Implementeer Gaply op de front-end** van de klant (widget of API).
+   Klantaccounts maak je alleen aan als de klant zelf in Gaply meekijkt; ben
+   jij het loket en logt de klant niet in, dan sla je dat over.
+2. **Koppel Search Console** en draai daarna de vraag-nulmeting uit
+   Inzichten (skill `partner-nulmeting`, deel B). Daar stuur je in het begin
+   op. Focusgebieden zet je nu niet op; die komen later, als een onderwerp
+   verdieping vraagt (skill `partner-focusgebieden`).
 3. **Schrijf de beheerinstructie** voor de eindklant (zie hieronder).
 4. **Loop de golden set na** — de eerste review hoort bij de overdracht, niet
    pas bij de eerste cadansronde.
@@ -40,22 +42,27 @@ gebouwd, en de nulmeting die daarop is gedraaid. Vanaf dat moment:
 6. Plan de eerste maandrapportage in (skill `partner-rapportage`), één volle
    kalendermaand na livegang.
 
-### Voorwaarde: de Partnerrol heeft nieuwe permissies nodig
+### Voorwaarde: de rechten op de golden set moeten aan je rol hangen
 
 Het lezen van de golden set en het indienen van voorstellen loopt via twee
-nieuwe capabilities: **`golden_set.read`** en **`golden_set.suggest`**. Die
-worden op dit moment door Gaply gebouwd en zijn bij het uitkomen van deze
-versie **nog niet uitgerold**. Twee dingen volgen daaruit:
+capabilities: **`golden_set.read`** en **`golden_set.suggest`**. Die bestaan
+inmiddels in het platform, maar ze zitten niet standaard in de Partnerrol:
+Gaply kent ze per partner toe. Controleer eerst met `get_my_access` of je
+ze hebt.
 
-- **Tot ze live zijn** krijg je de golden set bij het eind-seintje als export
-  van Gaply, en dien je je voorstellen in per mail (info@gaply.nl). Ga niet
-  zoeken naar een MCP-tool die de set ophaalt; die heb je nu niet.
-- **Zodra ze live zijn** moet Gaply ze ook daadwerkelijk aan de Partnerrol
-  toekennen. Gebeurt dat niet, dan krijg je een **403** op het moment dat je
-  de set probeert te lezen of een voorstel probeert in te dienen. Dat is dan
-  geen defect en geen omweg-probleem: meld het bij Gaply met de exacte
-  foutmelding, dan wordt de rol bijgewerkt. Gaply meldt bij de uitrol welke
-  tools erbij horen — verzin er zelf geen.
+- **Heb je ze:** lees de set met `get_golden_set` (de geschiedenis per entry
+  met `get_golden_set_entry_history`), dien een voorstel in met
+  `propose_golden_set_change`, volg het met `list_golden_set_proposals` en
+  trek het zo nodig in met `withdraw_golden_set_proposal`. Een voorstel
+  verandert niets tot Gaply het goedkeurt.
+- **Heb je ze niet:** je krijgt een **403** zodra je de set probeert te lezen
+  of een voorstel indient. Dat is geen defect en niets om omheen te werken:
+  meld het bij Gaply met de exacte foutmelding, dan wordt je rol bijgewerkt.
+  Tot die tijd krijg je de set als export van Gaply en dien je voorstellen
+  in per mail (info@gaply.nl).
+
+De scorekaart van de meting (`get_golden_set_results`) kun je met de
+Partnerrol altijd inzien.
 
 ## De golden set: jij keurt, Gaply voert door
 
@@ -109,10 +116,12 @@ verandert.
 Wat er minimaal in hoort:
 
 - wat Gaply op hun site doet, in klanttaal, en waar het zichtbaar is;
-- wie welke rol heeft: wat de klant zelf kan (inloggen, meekijken met wat
-  bezoekers vragen, content aanpassen op de eigen site), wat via jou loopt
-  (focusgebieden, contentvoorstellen, rapportage) en wat via Gaply loopt
-  (bronnen, zoek- en AI-instellingen, de meetlat);
+- wie welke rol heeft: wat de klant zelf doet (content aanpassen op de
+  eigen site en, als hij een account heeft, inloggen en meekijken met wat
+  bezoekers vragen), wat via jou loopt (de inzichten, contentvoorstellen,
+  rapportage en eventueel een focusgebied) en wat via Gaply loopt (bronnen, zoek- en AI-instellingen, de
+  meetlat). Logt de klant niet in, schrijf dan op hoe hij de inzichten wél
+  krijgt: via jouw rapportage en jullie vaste overleg;
 - hoe ze iets melden dat niet klopt — en bij wie: bij jou, niet bij Gaply;
 - wat er verandert als hun site verandert (nieuwe pagina's komen mee met de
   crawl, een nieuwe domeinnaam of een verhuizing niet automatisch — dat
@@ -122,7 +131,8 @@ Wat er minimaal in hoort:
   acceptatiebewijs kunt overleggen (skill `partner-juridisch`) — noem het uit
   jezelf, want een privacy-officer vraagt er anders later alsnog naar.
 
-Neem de instructie door tijdens de onboarding van de klantaccounts; een
+Neem de instructie door tijdens de onboarding van de klantaccounts of,
+als de klant niet inlogt, in je eerste overleg na de oplevering; een
 document dat alleen wordt gemaild, wordt niet gelezen.
 
 ## Verbetercadans
@@ -135,7 +145,7 @@ naast de maandrapportage — maandelijks bij veel verkeer, anders per kwartaal:
 | **Golden-set-review** | Loop de set na volgens de vier vragen hierboven, met de klant erbij. Neem in elk geval mee wat er sinds de vorige ronde is veranderd op de site en in het aanbod. |
 | **Judge-ijkronde (menselijk deel)** | Gaply ijkt de automatische beoordelaar routinematig met een AI-ronde. Het menselijke deel is naloopwerk: beoordeel een steekproef antwoorden zelf en meld waar jouw oordeel van dat van Gaply afwijkt. Systematische afwijking is een signaal, niet een detail. |
 | **Wat de bezoekers deden** | `get_interaction_frequency` en `list_interaction_logs`: welke nieuwe vragen zijn opgekomen, welke leverden niets op. Die horen vaak in de golden set of in een focusgebied. |
-| **Focusgebieden en gaten** | `list_lenses` en `get_lens_new_gaps`: zijn de focusgebieden nog de goede, zijn er nieuwe gaten? Grote gaten gaan door naar `partner-contentvoorstellen`. |
+| **Inzichten en gaten** | `list_insight_topics` en `list_missing_content`: welke onderwerpen zijn verschoven, welke gaten zijn erbij gekomen? Grote gaten gaan door naar `partner-contentvoorstellen`. Verdient een onderwerp inmiddels een focusgebied? Zijn er al focusgebieden: `list_lenses` en `get_lens_new_gaps`. |
 | **Beheerinstructie** | Klopt hij nog? Is de contactpersoon nog dezelfde? |
 
 Leg per ronde kort vast wat je hebt bekeken en wat je hebt ingediend, en wie

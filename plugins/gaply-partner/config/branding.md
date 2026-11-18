@@ -15,12 +15,16 @@ gebruiker om de waarde en werk dit bestand bij voordat je een klantdeliverable m
 | Accent-/signaalkleur (hex) | INVULLEN |
 | Lichte achtergrondtint (hex) | INVULLEN |
 | Standaard ondertekening | INVULLEN |
+| Vermelding van Gaply | zichtbaar (standaard) of op de achtergrond; Gaply vult dit in bij installatie |
 
 ## Vaste regels
 
-- Offertes en rapportages gaan uit onder de naam van de partner, altijd met de
-  vermelding "in samenwerking met Gaply" (rapportages) of "Powered by Gaply"
-  (offertevoetregel).
+- Offertes en rapportages gaan uit onder de naam van de partner. Staat
+  Vermelding van Gaply op "zichtbaar", dan met de vermelding "in
+  samenwerking met Gaply" (rapportages, nulmeting) of "Powered by Gaply"
+  (offertevoetregel). Staat het op "op de achtergrond", dan zonder die
+  vermelding. Dat is een afspraak tussen de partner en Gaply; de partner
+  wijzigt dit veld niet zelf.
 - De partner is het aanspreekpunt voor de eindklant; Gaply wordt nooit als
   direct contactadres van de eindklant opgevoerd.
 - Verzin geen kleuren of logo's; bij ontbrekende branding eerst dit bestand

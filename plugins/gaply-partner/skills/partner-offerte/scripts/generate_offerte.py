@@ -78,8 +78,10 @@ def main(config_path, out_path):
         canv.line(M, PAGE_H - 22 * mm, PAGE_W - M, PAGE_H - 22 * mm)
         canv.setFont("Helvetica", 8)
         canv.setFillColor(GREY)
+        # Vermelding van Gaply volgt config/branding.md; standaard zichtbaar.
+        powered = "  ·  Powered by Gaply" if meta.get("gaply_vermelding", True) else ""
         canv.drawCentredString(PAGE_W / 2, 11 * mm,
-                               f"{meta['footer']}  ·  Powered by Gaply  ·  "
+                               f"{meta['footer']}{powered}  ·  "
                                f"Pagina {doc.page}")
         canv.restoreState()
 

@@ -1,8 +1,9 @@
 ---
 name: partner-rapportage
 description: >-
-  Maandelijkse zoek- of chatrapportage per Gaply-eindklant, met contentroadmap
-  per focusgebied en verbruik op projectniveau, als HTML in de huisstijl van
+  Maandelijkse zoek- of chatrapportage per Gaply-eindklant, met het vraagbeeld
+  en de contentroadmap per onderwerp uit Inzichten (en per focusgebied waar
+  die er zijn) en verbruik op projectniveau, als HTML in de huisstijl van
   de eindklant met de partner als afzender. Gebruik bij "maandrapportage",
   "rapportage voor [klant]", "hoe presteert de zoekfunctie" of "maandelijkse
   update naar de klant".
@@ -11,18 +12,22 @@ description: >-
 # Partner-rapportage (maandelijks)
 
 De eindklant ziet elke maand hoe de zoekfunctie of chat presteert, waar
-bezoekers naar vragen en welke content er ontbreekt op de focusgebieden. De
-partner is afzender; het rapport vermeldt "in samenwerking met Gaply".
+bezoekers naar vragen en welke content er per onderwerp ontbreekt. De
+partner is afzender. Of het rapport "in samenwerking met Gaply" vermeldt,
+staat in `config/branding.md` (veld Vermelding van Gaply).
 
 ## Twee harde regels (lees eerst)
 
-1. **KB-dekking, contentgaten, AI-zichtbaarheid en voortgang meet je
-   UITSLUITEND per focusgebied (lensId).** Nooit op het omgevingsbrede
-   alle-vragen-cijfer. Alleen **bereik** mag over al het verkeer: aantal
-   zoekopdrachten of chatgesprekken, aandeel met en zonder resultaat. Heeft
-   een focusgebied nog geen meting, meld dat; vul het nooit aan met het
-   omgevingscijfer. De contentroadmap bevat alleen clusters die aan een
-   bestaand focusgebied hangen.
+1. **Dekking, contentgaten en voortgang rapporteer je per onderwerp uit
+   Inzichten en, waar ze er zijn, per focusgebied. Nooit als één cijfer over
+   de hele omgeving.** Een klant begint met Inzichten en heeft dan nog geen
+   focusgebieden; het beeld per onderwerp is dan de basis van het rapport.
+   Komt er later een focusgebied als verdieping bij, dan rapporteer je dat
+   apart, met zijn eigen cijfers (lensId). Tel onderwerpen en focusgebieden
+   niet bij elkaar op en vul het ene niet aan met het andere. Alleen
+   **bereik** mag over al het verkeer: aantal zoekopdrachten of
+   chatgesprekken, aandeel met en zonder resultaat. AI-zichtbaarheid noem
+   je alleen waar die gemeten is.
 2. **Geen cijfer dat niet uit een tool-respons komt, en alleen werkelijk
    gestelde bezoekersvragen.** Een leeg of misleidend rapport is schadelijker
    dan geen rapport.
@@ -43,15 +48,19 @@ partner is afzender; het rapport vermeldt "in samenwerking met Gaply".
 
 ## Stap 1 — Weigeren bij te weinig data
 
-Controleer verkeer (`list_interaction_logs`, aggregates.total) en of er
-minstens één gemeten focusgebied is (`list_lenses` + `get_metrics_trend` met
-lensId). Geen verkeer: geen rapport, meld wat er ontbreekt. Wel verkeer maar
-geen gemeten focusgebied: overleg of een bereik-only rapport zin heeft.
+Controleer verkeer (`list_interaction_logs`, aggregates.total) en of er een
+vraagbeeld is: beoordeelde vraagclusters in Inzichten
+(`get_insights_summary`, `list_insight_topics`). Focusgebieden zijn niet
+nodig voor een rapport. Geen verkeer: geen rapport, meld wat er ontbreekt.
+Wel verkeer maar nog geen beoordeelde clusters: overleg of een bereik-only
+rapport zin heeft.
 
 ## Stap 2 — De cijfers
 
 Periode: de volledige vorige kalendermaand, vergeleken met de maand ervoor
-(of "eerste volledige maand").
+(of "eerste volledige maand"). Bij de eerste rapportage is de nulmeting
+(skill `partner-nulmeting`) het vergelijkingspunt: noem wat er sinds dat
+startpunt is veranderd, in plaats van een vorige maand die er niet is.
 
 - **Bereik** (mag omgevingsbreed): `list_interaction_logs(channel, dateFrom,
   dateTo, limit=1)` → aggregates `total` en `empty`; aandeel zonder resultaat
@@ -59,24 +68,33 @@ Periode: de volledige vorige kalendermaand, vergeleken met de maand ervoor
   kerncijfer.
 - **Topvragen**: `get_interaction_frequency` — alleen werkelijk gestelde
   vragen.
-- **Dekking en kwaliteit, per focusgebied**: per lens `get_metrics_trend`
-  (bucket week) voor dekking, gaten en AI-zichtbaarheid, en
-  `get_metrics_compare` (altijd mét lensId) voor opgeloste en nieuwe gaten.
-  Het omgevingsbrede `get_metrics_trend` alleen voor de operationele markers
-  (doorgevoerde verbeteringen), nooit als klantdekkingscijfer.
-- **Wat er is gedaan**: doorgevoerde contentvoorstellen en bijgekomen of
-  doorgerekende focusgebieden (`list_lenses`: createdAt, lastRefreshedAt).
+- **Vraagbeeld per onderwerp (Inzichten)**: `list_insight_topics` over de
+  rapportagemaand en over de maand ervoor (`from`, `to`), met dezelfde
+  drempels als de nulmeting. Per onderwerp: het aantal vraagclusters dat
+  beantwoord is (covered), deels beantwoord (partial) en niet beantwoord
+  (gap). Clusters die nog niet beoordeeld zijn (none) noem je apart en tel
+  je nergens bij op. `get_insights_summary` geeft het aantal gaten dat sinds
+  de vorige periode is gedicht.
+- **Verdieping per focusgebied, alleen als er focusgebieden zijn**: per lens
+  `get_metrics_trend` (bucket week) voor dekking, gaten en AI-zichtbaarheid,
+  en `get_metrics_compare` (altijd mét lensId) voor opgeloste en nieuwe
+  gaten. Het omgevingsbrede `get_metrics_trend` alleen voor de operationele
+  markers (doorgevoerde verbeteringen), nooit als klantdekkingscijfer.
+- **Wat er is gedaan**: doorgevoerde contentvoorstellen en, als die er zijn,
+  bijgekomen of doorgerekende focusgebieden (`list_lenses`: createdAt,
+  lastRefreshedAt).
 - **Verbruik (projectniveau)**: `get_cost_overview` voor het
   verbruiksoverzicht van het project; neem dit beknopt op als de afspraak met
   de klant dat vraagt, zonder interne kostendetails.
 
 ## Stap 3 — De contentroadmap
 
-`list_missing_content(environmentId, from, to, limit=20)`. Alleen clusters met
-een `topic` dat bij een ingericht focusgebied hoort. Rangschik op askedCount,
-maal 2 bij label "gap", maal 1 bij "partial"; neem de tien hoogste. Gebruik
-het `improvement`-veld als aanbeveling; is dat leeg, beschrijf dan alleen wat
-er gezocht wordt. Verzin geen aanbevelingen.
+`list_missing_content(environmentId, from, to, limit=20)` geeft de
+vraagclusters zonder goed antwoord, de meest gestelde eerst. Neem de tien
+hoogste en groepeer ze per onderwerp (`topic`). Gebruik het
+`improvement`-veld als aanbeveling; is dat leeg, beschrijf dan alleen wat
+er gezocht wordt. Verzin geen aanbevelingen. Is er een focusgebied, geef dan
+aan welke van deze tien daarbinnen vallen.
 
 ## Stap 4 — Bouw het rapport
 
@@ -84,15 +102,18 @@ HTML, print-klaar op A4, in de huisstijl van de eindklant; bovenaan de CSS één
 blok met de klantvariabelen (kleuren, logo). Bestandsnaam
 `<klant>-zoekrapportage-<maand>-<jaar>.html` (of `-chatrapportage-`).
 
-Secties, in volgorde: kop (klantlogo, "door [partner], in samenwerking met
-Gaply", periode); in het kort (vier of vijf zinnen, verhalend); vier
-kerncijfers (bereikcijfers plus één dekkingscijfer dat expliciet per
-focusgebied is, met naam); wat er sinds vorige maand is gedaan (met datums);
-verloop over de maand (volume per week mag omgevingsbreed, dekking alleen per
-focusgebied); waar bezoekers naar zoeken (top 20 echte vragen); focusgebieden
-(per gebied dekking, open gaten, AI-zichtbaarheid en beweging; niet-gemeten
-expliciet benoemen); wat niets opleverde (uitgesplitst naar type);
-contentroadmap (tien onderwerpen); wat ons opviel (één observatie); wat wij
+Secties, in volgorde: kop (klantlogo, "door [partner]" met de vermelding
+van Gaply volgens `config/branding.md`, periode); in het kort (vier of vijf zinnen, verhalend); vier
+kerncijfers (bereikcijfers plus één dekkingscijfer dat expliciet bij één
+onderwerp of focusgebied hoort, met naam); wat er sinds vorige maand is
+gedaan (met datums); verloop over de maand (volume per week mag
+omgevingsbreed, dekking alleen per onderwerp of focusgebied); waar bezoekers
+naar zoeken (top 20 echte vragen); onderwerpen (per onderwerp hoeveel
+vraagclusters beantwoord, deels en niet beantwoord zijn, en de beweging
+sinds vorige maand; nog niet beoordeeld expliciet benoemen); focusgebieden,
+alleen als ze er zijn (per gebied dekking, open gaten, AI-zichtbaarheid en
+beweging); wat niets opleverde (uitgesplitst naar type); contentroadmap
+(tien clusters, per onderwerp); wat ons opviel (één observatie); wat wij
 van jullie nodig hebben (alleen indien echt nodig); over deze rapportage
 (bron en meetbeperkingen).
 
@@ -111,7 +132,7 @@ eindklant.
 ## Grenzen
 
 - Nooit zelf versturen; de partner verstuurt.
-- Dekkingscijfers alleen per focusgebied; roadmap alleen binnen de
-  focusgebieden.
+- Dekkingscijfers alleen per onderwerp of per focusgebied, nooit over de
+  hele omgeving; onderwerpen en focusgebieden niet optellen.
 - Interne Gaply-kosten of prijsafspraken horen niet in een klantrapport;
   alleen het verbruiksoverzicht op projectniveau, indien afgesproken.

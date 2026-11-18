@@ -21,17 +21,35 @@ engine-inrichting niet.
 
 ## Werkwijze
 
-### 1. Kies de queries
+### 1. Kies waar je content voor maakt
 
-Vertrek vanuit de focusgebieden: `get_lens_new_gaps` en `list_query_universe`
-tonen de vragen zonder goed antwoord. Kies maximaal 10 samenhangende queries
-per voorstel-run, bij voorkeur binnen één focusgebied. Rangschik op wat
-bezoekers werkelijk vragen (askedCount), zwaarst wegend bij label "gap".
+**Vertrek vanuit Inzichten.** `list_missing_content` geeft de vraagclusters
+waarvan is vastgesteld dat de inhoud ontbreekt, de meest gestelde eerst, met
+het verbeteradvies per cluster. `get_insight_topic_clusters` geeft hetzelfde
+per onderwerp, inclusief de clusters die deels beantwoord zijn. Kies per
+ronde een handvol clusters binnen één onderwerp, zodat de redactie in één
+keer een samenhangend stuk kan schrijven. `get_query_cluster` laat van een
+cluster de kernvraag, de formuleringen en de pagina's zien die er nu het
+dichtst bij komen.
+
+Controleer vóór je begint of het gat geen technische oorzaak heeft (zie
+`partner-nulmeting`, stap B4). Voor een pagina die bestaat maar niet is
+ingelezen, schrijf je geen nieuwe content.
+
+**Is er een focusgebied voor dit onderwerp**, dan kun je ook daaruit
+vertrekken: `get_content_proposal_seeds` en `get_lens_new_gaps` geven de
+vragen zonder goed antwoord binnen dat focusgebied. Kies dan maximaal tien
+samenhangende vragen per ronde.
 
 ### 2. Start en beantwoord de discovery
 
-- `start_content_proposal` met de gekozen queries; Gaply genereert
-  discovery-vragen.
+- Vanuit een cluster: `start_content_proposal` met `clusterId` en de
+  kernvraag van het cluster (`canonicalQueryId`) als enige waarde in
+  `queryIds`. Je krijgt één voorstel dat alle formuleringen van het cluster
+  dekt.
+- Vanuit losse vragen in een focusgebied: `start_content_proposal` met de
+  gekozen vragen (en `lensId`).
+- Gaply genereert in beide gevallen discovery-vragen.
 - Beantwoord de discovery-vragen SAMEN met de klant; daar zit de kennis die
   niet op de site staat. Verzin geen antwoorden namens de klant. Dien ze in
   met `submit_content_proposal_answers`; Gaply genereert dan content plus een
@@ -55,8 +73,10 @@ Zodra de klant de content heeft geplaatst:
 - `set_proposal_implementation` (bevestigd of gecorrigeerd);
 - `verify_proposal_implementation` voor een gerichte recrawl plus
   dekkings-hertoets;
-- controleer daarna met `get_lens_new_gaps` of het gat inderdaad dicht is en
-  werk de gap-status bij met `set_gap_query_status`.
+- controleer daarna of het gat inderdaad dicht is: in Inzichten met
+  `get_query_cluster` (het oordeel over het cluster), binnen een focusgebied
+  met `get_lens_new_gaps`. Werk de status van de vraag bij met
+  `set_gap_query_status`.
 
 Koppel het resultaat terug aan de klant: welke vragen nu wél beantwoord
 worden. Dit is ook de kerninhoud van de maandrapportage

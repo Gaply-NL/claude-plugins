@@ -1,19 +1,37 @@
 ---
 name: partner-focusgebieden
 description: >-
-  Focusgebieden (lenses) opzetten, doorrekenen en duiden voor een
-  Gaply-klantproject, samen met de eindklant. Gebruik bij "focusgebieden
-  zetten voor [klant]", "gap-analyse bekijken", "welke gaten zijn er",
-  "query-boom", "nieuwe gaps" of na de melding van Gaply dat de testomgeving
-  klaarstaat.
+  Verdiepende gap-analyse op één onderwerp: een focusgebied (lens) opzetten,
+  doorrekenen en duiden voor een Gaply-klantproject, samen met de eindklant.
+  Niet de start van een traject; dat is Inzichten (skill partner-nulmeting).
+  Gebruik bij "focusgebied zetten voor [klant]", "verdiepende gap-analyse",
+  "query-boom", "nieuwe gaps in het focusgebied" of als een onderwerp uit
+  Inzichten een eigen, vaste meting verdient.
 ---
 
-# Partner-focusgebieden (GAP-analyse)
+# Partner-focusgebieden (verdiepende gap-analyse)
 
-Een focusgebied (lens) is een afgebakend thema waarbinnen Gaply meet of de
-website de vragen van bezoekers beantwoordt: dekking, contentgaten en
-AI-zichtbaarheid. Focusgebieden zetten en duiden is kernwerk van de partner,
-in samenspraak met de eindklant.
+Een focusgebied (lens) is een afgebakend thema waarbinnen Gaply dieper meet
+of de website de vragen van bezoekers beantwoordt: dekking, contentgaten en
+AI-zichtbaarheid, in een vaste meetreeks.
+
+## Eerst Inzichten, dan pas een focusgebied
+
+Een traject begint met Inzichten, niet met focusgebieden. Het beeld over de
+hele site, de keuze waar je content voor maakt en de maandrapportage komen
+allemaal uit Inzichten (skill `partner-nulmeting`). Zet een focusgebied pas
+op als een onderwerp daar om vraagt:
+
+- het onderwerp is groot of belangrijk genoeg voor een eigen meetreeks die
+  maand op maand vergelijkbaar blijft;
+- je wilt voor dat onderwerp de verdiepingsvragen van Google en de
+  AI-zichtbaarheid erbij;
+- de klant bakent het thema anders af dan de onderwerpen in Inzichten, en je
+  wilt die afbakening zelf bepalen.
+
+Is geen van de drie het geval, dan voegt een focusgebied niets toe aan wat
+Inzichten al laat zien. Welke focusgebieden er komen, volgt uit Inzichten;
+je bedenkt ze niet vooraf.
 
 ## Voorbereiding (elke sessie)
 
@@ -23,24 +41,29 @@ in samenspraak met de eindklant.
    lege data.
 2. Werk op de **testomgeving**. Focusgebieden aanmaken en wijzigen is op een
    productie-environment platformbreed geblokkeerd; dat is normaal gedrag,
-   geen rechtenprobleem. Livegang loopt via de skill `partner-livegang`.
+   geen rechtenprobleem. Staat een focusgebied goed op test, meld dan bij
+   Gaply (info@gaply.nl) welk focusgebied naar productie moet; het overzetten
+   doet Gaply. De meting op echte bezoekersvragen loopt op productie.
 3. Onzeker over je rechten: `get_my_access` toont wat je token kan.
 
 ## Werkwijze
 
-### 1. Bepaal de focusgebieden met de klant
+### 1. Bepaal het focusgebied met de klant
 
-Vertrekpunt is de projectcontext uit de intake: `get_project_context` geeft de
-focusgebied-kandidaten die daar al zijn vastgelegd (onderwerp, waarom,
-voorbeeldvragen), plus doelgroepen en vraagtypen. Dat is een startpunt, geen
-eindpunt — goede focusgebieden zijn onderwerpen waar bezoekersvragen over
-bestaan, niet de menustructuur van de site. Gebruik als aanvullende input wat
-bezoekers werkelijk doen: `get_interaction_frequency`
-en `list_interaction_logs` (echte zoekopdrachten en chatvragen),
-`get_gsc_queries` (Google-zoekwoorden als GSC gekoppeld is) en
-`get_insights_summary` / `list_insight_topics` voor de vraagclusters. Stel per
-focusgebied vast: naam, afbakening (wat hoort er wel en niet bij) en de
-doelgroep.
+Vertrekpunt is Inzichten (skill `partner-nulmeting`, deel B): daar zie je
+over de hele site welke onderwerpen er leven en waar de meeste
+onbeantwoorde vragen zitten (`get_insights_summary`, `list_insight_topics`,
+`get_insight_topic_clusters`). Is die nulmeting er nog niet, doe die dan
+eerst. Kies het onderwerp uit dat beeld, samen met wat de klant belangrijk
+vindt: een goed focusgebied is een onderwerp waar bezoekersvragen over
+bestaan, niet een onderdeel van de menustructuur.
+
+Aanvullende input: de doelgroepen en bezoekersvragen uit de projectcontext
+(`get_project_context`), wat bezoekers werkelijk doen
+(`get_interaction_frequency` en `list_interaction_logs`, als er een
+zoekfunctie of chat draait) en de zoekwoorden uit Google
+(`get_gsc_queries`). Stel per focusgebied vast: naam, afbakening (wat hoort
+er wel en niet bij) en de doelgroep.
 
 ### 2. Maak aan en reken door
 
@@ -62,8 +85,9 @@ doelgroep.
   genegeerd) zodat het overzicht schoon blijft; her-toets twijfelgevallen met
   `recheck_query_coverage`.
 
-Bespreek de uitkomst met de klant in klanttaal: welke thema's staan er goed
-voor, waar zitten de grootste gaten, en wat pakken we als eerste op. De
+Bespreek de uitkomst met de klant in klanttaal: wat laat de verdieping zien
+dat Inzichten nog niet liet zien, waar zitten de grootste gaten, en wat
+pakken we als eerste op. De
 logische vervolgstap voor de grootste gaten is de skill
 `partner-contentvoorstellen`.
 
